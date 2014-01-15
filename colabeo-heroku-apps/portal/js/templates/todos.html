@@ -1,0 +1,16 @@
+<a class="item-thumbnail" href="//<%= content %>">
+    <img src="http://mini.s-shot.ru/?<%= content %>" class="img-rounded">
+</a>
+<div class="show-item">
+    <span class="todo-content"><%= content %></span>
+
+    <div class="pull-right item-buttons">
+        <span class="todo-edit"><i class="icon-pencil icon-large"></i></span>
+        <span class="todo-destroy"><i class="icon-remove icon-large"></i></span>
+    </div>
+</div>
+
+<div class="edit-item input-append hidden">
+    <input type="text" class="todo-input input-medium" value="<%= content %>">
+    <!--<button type="submit" class="btn">Create</button>-->
+</div>
