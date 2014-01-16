@@ -169,7 +169,7 @@ function preloadRingtone() {
 	e.id = 'ringtone';
 	e.loop = true;
 	e.style.display = 'none';
-	e.innerHTML = '<source src="http://rc1-dot-de-mobo.appspot.com/audio/Marimba.mp3" type="audio/mpeg">';
+	e.innerHTML = '<source src="http://cdn-dot-colabeo.appspot.com/audio/Marimba.mp3" type="audio/mpeg">';
 	document.body.appendChild(e);
 }
 

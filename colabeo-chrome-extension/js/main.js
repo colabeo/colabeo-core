@@ -2,7 +2,7 @@ var dev = false;
 //change these two lines for loading local files
 var appEnginePort = 1250;
 var injectedScript = function() {
-	demoboBody.injectScript = function(url, callback) {
+	colabeoBody.injectScript = function(url, callback) {
 		var s = document.createElement('script');
 		s.src = url;
 		s.setAttribute('class', 'dmb-script');
@@ -13,24 +13,24 @@ var injectedScript = function() {
 		};
 		(document.head || document.documentElement).appendChild(s);
 	};
-	demoboBody.addEventListener("FromContentScript", function(e) {
-		demoboBody.detail = e.detail;
+	colabeoBody.addEventListener("FromContentScript", function(e) {
+		colabeoBody.detail = e.detail;
 	});
-	demoboBody.addEventListener("FromPopup", function(e) {
+	colabeoBody.addEventListener("FromPopup", function(e) {
 
 	});
 	if (window.onExtensionMessage)
-		demoboBody.addEventListener("FromExtension", onExtensionMessage);
+		colabeoBody.addEventListener("FromExtension", onExtensionMessage);
 };
 if (!document.getElementById('toggle')) {
-	var demoboBody = document.createElement('div');
-	demoboBody.setAttribute('id', 'demoboBody');
-	document.body.appendChild(demoboBody);
+	var colabeoBody = document.createElement('div');
+	colabeoBody.setAttribute('id', 'colabeoBody');
+	document.body.appendChild(colabeoBody);
 	var toggle = document.createElement('div');
 	if (dev) {
-		toggle.setAttribute('onclick', 'javascript:((function(c){(c.demoboPortal&&c.demoboPortal.set("mode","EXTENSION"));c._extension=1;var d=window.__dmtg;((!c.demoboPortal&&function(){var a=new Date,b=c.document.createElement("script"),e=(document.location.protocol==="https:")?"https://localhost:443":"http://localhost:' + appEnginePort + '";window.demoboBase=e;b.src=e+"/core/entry.js?"+a.getTime();b.className="demoboJS";c.document.body&&c.document.body.appendChild(b)})||d)()})(window))');
+		toggle.setAttribute('onclick', 'javascript:((function(c){(c.colabeoPortal&&c.colabeoPortal.set("mode","EXTENSION"));c._extension=1;var d=window.__dmtg;((!c.colabeoPortal&&function(){var a=new Date,b=c.document.createElement("script"),e=(document.location.protocol==="https:")?"https://localhost:443":"http://localhost:' + appEnginePort + '";window.colabeoBase=e;b.src=e+"/core/entry.js?"+a.getTime();b.className="colabeoJS";c.document.body&&c.document.body.appendChild(b)})||d)()})(window))');
 	} else {
-		toggle.setAttribute('onclick', 'javascript:((function(c){(c.demoboPortal&&c.demoboPortal.set("mode","EXTENSION"));c._extension=1;var d=window.__dmtg;((!c.demoboPortal&&function(){var a=new Date,b=c.document.createElement("script"),e="//rc2-dot-de-mobo.appspot.com";window.demoboBase=e;b.src="//rc2-dot-de-mobo.appspot.com/core/entry.js?"+a.getTime();b.className="demoboJS";c.document.body&&c.document.body.appendChild(b)})||d)()})(window))');
+		toggle.setAttribute('onclick', 'javascript:((function(c){(c.colabeoPortal&&c.colabeoPortal.set("mode","EXTENSION"));c._extension=1;var d=window.__dmtg;((!c.colabeoPortal&&function(){var a=new Date,b=c.document.createElement("script"),e="//cdn-dot-colabeo.appspot.com";window.colabeoBase=e;b.src="//cdn-dot-colabeo.appspot.com/core/entry.js?"+a.getTime();b.className="colabeoJS";c.document.body&&c.document.body.appendChild(b)})||d)()})(window))');
 	}
 	toggle.setAttribute('id', 'toggle');
 	document.body.appendChild(toggle);
@@ -38,21 +38,21 @@ if (!document.getElementById('toggle')) {
 	var load = document.createElement('div');
 	load.setAttribute('id', 'load');
 	if (dev) {
-		load.setAttribute('onclick', 'javascript:((function(c){(c.demoboPortal&&c.demoboPortal.set("mode","EXTENSION"));c._extension=1;var d=window.__dmtg;((!c.demoboPortal&&function(){var a=new Date,b=c.document.createElement("script"),e=(document.location.protocol==="https:")?"https://localhost:443":"http://localhost:' + appEnginePort + '";window.demoboBase=e;b.src=e+"/core/entry.js?"+a.getTime();b.className="demoboJS";c.document.body&&c.document.body.appendChild(b)})||d)()})(window))');
+		load.setAttribute('onclick', 'javascript:((function(c){(c.colabeoPortal&&c.colabeoPortal.set("mode","EXTENSION"));c._extension=1;var d=window.__dmtg;((!c.colabeoPortal&&function(){var a=new Date,b=c.document.createElement("script"),e=(document.location.protocol==="https:")?"https://localhost:443":"http://localhost:' + appEnginePort + '";window.colabeoBase=e;b.src=e+"/core/entry.js?"+a.getTime();b.className="colabeoJS";c.document.body&&c.document.body.appendChild(b)})||d)()})(window))');
 	} else {
-		load.setAttribute('onclick', 'javascript:((function(c){(c.demoboPortal&&c.demoboPortal.set("mode","EXTENSION"));c._extension=1;var d=window.__dmtg;((!c.demoboPortal&&function(){var a=new Date,b=c.document.createElement("script"),e="//rc2-dot-de-mobo.appspot.com";window.demoboBase=e;b.src="//rc2-dot-de-mobo.appspot.com/core/entry.js?"+a.getTime();b.className="demoboJS";c.document.body&&c.document.body.appendChild(b)})||d)()})(window))');
+		load.setAttribute('onclick', 'javascript:((function(c){(c.colabeoPortal&&c.colabeoPortal.set("mode","EXTENSION"));c._extension=1;var d=window.__dmtg;((!c.colabeoPortal&&function(){var a=new Date,b=c.document.createElement("script"),e="//cdn-dot-colabeo.appspot.com";window.colabeoBase=e;b.src="//cdn-dot-colabeo.appspot.com/core/entry.js?"+a.getTime();b.className="colabeoJS";c.document.body&&c.document.body.appendChild(b)})||d)()})(window))');
 	}
-	// load.setAttribute('onclick', 'javascript:(function(c){(c.demoboPortal&&c.demoboPortal.set("mode","EXTENSION"));!c.demoboPortal&&(function(){c._extension=1;var a=new Date,b=c.document.createElement("script"),e="//rc2-dot-de-mobo.appspot.com";window.demoboBase=e;b.src="//rc2-dot-de-mobo.appspot.com/core/entry.js?"+a.getTime();b.className="demoboJS";c.document.body&&c.document.body.appendChild(b)}());})(window)');
-	//  load.setAttribute('onclick', 'javascript:(function(){if (window.demobo)return;document.getElementById("toggle").click()})()');
+	// load.setAttribute('onclick', 'javascript:(function(c){(c.colabeoPortal&&c.colabeoPortal.set("mode","EXTENSION"));!c.colabeoPortal&&(function(){c._extension=1;var a=new Date,b=c.document.createElement("script"),e="//cdn-dot-colabeo.appspot.com";window.colabeoBase=e;b.src="//cdn-dot-colabeo.appspot.com/core/entry.js?"+a.getTime();b.className="colabeoJS";c.document.body&&c.document.body.appendChild(b)}());})(window)');
+	//  load.setAttribute('onclick', 'javascript:(function(){if (window.colabeo)return;document.getElementById("toggle").click()})()');
 	document.body.appendChild(load);
 
 	injectJavascript(injectedScript);
 
-	demoboBody.addEventListener("FromFrontground", function(e) {
+	colabeoBody.addEventListener("FromFrontground", function(e) {
 		console.log("FromFrontground", e.detail);
 		chrome.runtime.sendMessage(e.detail);
 	});
-	demoboBody.addEventListener("FromKoala", function(e) {
+	colabeoBody.addEventListener("FromKoala", function(e) {
 		console.log("FromKoala", e.detail);
 		chrome.runtime.sendMessage(e.detail);
 	});
@@ -72,7 +72,7 @@ if (!document.getElementById('toggle')) {
 			document.getElementById('load').click();
 			var detail = {
 				type : "input",
-				source : 'demoboApp',
+				source : 'colabeoApp',
 				value : '',
 				userName : "simulator",
 				deviceID : "simulator"
@@ -93,7 +93,7 @@ if (!document.getElementById('toggle')) {
 		var evt = new CustomEvent(evtName, {
 			detail : evtDetail
 		});
-		demoboBody.dispatchEvent(evt);
+		colabeoBody.dispatchEvent(evt);
 	}
 
 	function javascriptToString(f) {
