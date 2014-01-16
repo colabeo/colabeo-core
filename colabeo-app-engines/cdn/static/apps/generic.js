@@ -11,7 +11,7 @@
 	Generic.prototype.initialize = function() {
 		console.log("Generic init ...");
 		if (top === self) {
-			demoboPortal.turnOnFavicon();
+			colabeoPortal.turnOnFavicon();
 		}
 		this.setController({
 			url : 'generic'
@@ -26,7 +26,7 @@
 				TogetherJSConfig_dontShowClicks = false;
 				TogetherJSConfig_cloneClicks = true;
 			}
-			demobo._sendToSimulator('event', {
+			colabeo._sendToSimulator('event', {
 				action : "getProperty"
 			});
 		}
@@ -48,7 +48,7 @@
 				TogetherJS(window);
 			}
 		};
-		demoboBody.addEventListener("FromExtension", function(e) {
+		colabeoBody.addEventListener("FromExtension", function(e) {
 			console.log("generic: ", e.detail);
 			if (e.detail.id && e.detail.name ) {
 				userId = e.detail.id;
@@ -67,22 +67,22 @@
 					break;
 				case "turnOn":
 					if (top === self) {
-						demoboPortal.turnOnFavicon();
+						colabeoPortal.turnOnFavicon();
 					}
 					break;
 				case "turnOff":
 					if (top === self) {
-						demoboPortal.turnOffFavicon();
+						colabeoPortal.turnOffFavicon();
 					}
 					break;
 				case "sync":
 					if (top === self) {
 						var url = window.location.href;
-						demobo._sendToSimulator('event', {
+						colabeo._sendToSimulator('event', {
 							url : url,
 							action : "urlChange"
 						});
-						demobo._sendToSimulator('event', {
+						colabeo._sendToSimulator('event', {
 							action : "getProperty"
 						});
 					}
@@ -98,7 +98,7 @@
 					// if (top === self) {
 						// if (window.TogetherJS) {
 							// TogetherJS(window);
-							// demobo._sendToSimulator('event', {
+							// colabeo._sendToSimulator('event', {
 								// syncId : syncId,
 								// action : "syncMouse"
 							// });
@@ -136,7 +136,7 @@
 
 	};
 
-	// add this adaptor to demoboPortal
-	window.demoboPortal.addBobo(Generic);
+	// add this adaptor to colabeoPortal
+	window.colabeoPortal.addBobo(Generic);
 
 })();

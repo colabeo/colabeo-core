@@ -14,7 +14,7 @@
 
 
     this.setController({
-      url: 'http://rc1.demobo.com/v1/momos/pandora/control.html?0201'
+      url: 'http://rc1.colabeo.com/v1/momos/pandora/control.html?0201'
     });
 
     this.setInputEventHandlers({
@@ -26,8 +26,8 @@
 			'spamButton' : 	  	'dislike',
 			'volumeSlider' :   	'setVolume',
 			'stationItem' :   	'chooseStation',
-			'demoboVolume' :   	'onVolume',
-			'demoboApp' : 	  	'onReady'
+			'colabeoVolume' :   	'onVolume',
+			'colabeoApp' : 	  	'onReady'
     });
 
     this.setInfo('last3PlayedSongs', []);
@@ -314,5 +314,5 @@
 		return Math.round(100*(target-min)/(max-min));
 	};
    
-  window.demoboPortal.addBobo(Pandora);
+  window.colabeoPortal.addBobo(Pandora);
 })();

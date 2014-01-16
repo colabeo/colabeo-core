@@ -25,7 +25,7 @@
 
 		this.setInfo('slideChangeTimeout', null);
 
-		//		demobo._sendToSimulator('setData', {key: 'url', value: location.href});
+		//		colabeo._sendToSimulator('setData', {key: 'url', value: location.href});
 
 		this.setController({
 			url : 'slideshare'
@@ -40,8 +40,8 @@
 			'firstButton' : 'firstSlide',
 			'lastButton' : 'lastSlide',
 			'notesSlider' : 'setSlide',
-			'demoboApp' : 'onReady',
-			'demoboVolume' : 'onVolume'
+			'colabeoApp' : 'onReady',
+			'colabeoVolume' : 'onVolume'
 		});
 
 		this.setupPageTrigger();
@@ -49,7 +49,7 @@
 		setTimeout(function() {
 			s.refreshController.apply(s, []);
 		}, 2000);
-		demoboBody.addEventListener("FromExtension", function(e) {
+		colabeoBody.addEventListener("FromExtension", function(e) {
 			console.log("slideshare: ", e.detail);
 		});
 	};
@@ -175,6 +175,6 @@
 		return toReturn;
 	};
 
-	window.demoboPortal.addBobo(Slideshare);
+	window.colabeoPortal.addBobo(Slideshare);
 })();
 

@@ -1,17 +1,17 @@
 (function(){
-var base = window.demoboBase;
+var base = window.colabeoBase;
 
 var html= '';
 
 var css = '';
 
-var demoboConnect = document.createElement('div');
-demoboConnect.id = 'demoboConnect';
-var demoboCss = document.createElement('style');
-demoboCss.classList.add('demoboCSS');
-demoboCss.innerHTML = css;
-demoboConnect.innerHTML = html;
-document.body.appendChild(demoboConnect);
-document.body.appendChild(demoboCss);
+var colabeoConnect = document.createElement('div');
+colabeoConnect.id = 'colabeoConnect';
+var colabeoCss = document.createElement('style');
+colabeoCss.classList.add('colabeoCSS');
+colabeoCss.innerHTML = css;
+colabeoConnect.innerHTML = html;
+document.body.appendChild(colabeoConnect);
+document.body.appendChild(colabeoCss);
 
 })();

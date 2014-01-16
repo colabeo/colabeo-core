@@ -1,5 +1,5 @@
-application: de-mobo
-version: rc2
+application: colabeo
+version: cdn
 runtime: python
 api_version: 1
 

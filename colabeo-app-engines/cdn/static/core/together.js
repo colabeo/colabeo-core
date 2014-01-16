@@ -73,7 +73,7 @@
   };
 
   var styleSheet = "/togetherjs/togetherjs.css?1201";
-  var colabeoStyleSheet = window.demoboBase + "/core/togetherjs.css";
+  var colabeoStyleSheet = window.colabeoBase + "/core/togetherjs.css";
 
   var baseUrl = "https://togetherjs.com";
   if (baseUrl == "__" + "baseUrl__") {

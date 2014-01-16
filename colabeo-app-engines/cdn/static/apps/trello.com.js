@@ -48,7 +48,7 @@
 						var targets = Array.prototype.slice.call(document.getElementsByClassName(elementClassName));
 						var index = Array.prototype.indexOf.call(targets, target);
 						console.log('click', elementClassName, index);
-						demobo._sendToSimulator('event', {
+						colabeo._sendToSimulator('event', {
 							selector : elementClassName,
 							index : index,
 							action : 'click'
@@ -61,7 +61,7 @@
 		}
 	};
 
-	// add this adaptor to demoboPortal
-	window.demoboPortal.addBobo(Trello);
+	// add this adaptor to colabeoPortal
+	window.colabeoPortal.addBobo(Trello);
 
 })();

@@ -1,6 +1,6 @@
 var DeMoboFavicon = function() {
 	this.docHead = document.getElementsByTagName("head")[0];
-	this.demoboIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAB3RJTUUH3QsVACku6vOhyQAAA2pJREFUOMt9lF1sVGUQhp85Z5daVKoWiUnLDRjQ2lViNMaiN1oCaIO09U4v6m7XthZsSC9EE70hwT9Cgok/ZS0Wok1IurvdQn81IvECpRbJntOlLTTBqgkWLkRoyrI9Z7w47bpdinP3zXzzzjfzvt8IefbutxPs2bQOgDePp/wzN50iVQpV1RARxxBmi5f7//5wy0NOfq6Re2hOjGaBwnHrpevpua9d1Z9VdUrhoqr+5qiemp65eSQcszZ7STEiw1MASD66zqiEBu1B19VKQAQwRE4iXEIpdVUr1MtzTEM62msC9VWHR9i8rngxWGO3VZR2tE+VChEmfIbsjVQHDucXDEet5ozqW8BqU6S3vTZQlW2zsdsGIONyQJUKQ6S/wDQqFoBa+1LZMQBEagOf3uE3KgyRE8CRbJWW497FpoS9sa4rqcGolWIJe6PH5ofzl3k9bhGMWhKKWtmumrq9IsaBqjIA0nP6CaAGtAJ8c/bPLNA7Q+N8tq2co6lLxY6yHzir8GsoarW+/+MF8/Ptj9Ax8ofXZnOPXeqqlglc8PtkeGfPKK9sKMmCjU3PzBfkqCEyrqpXXdXHHNV9k9OzBwEGz1/xCAjHrOczrvYZMHzo5UefWarNpm77yRuO2ynCgOuyIzd2X6F/1f4XH75sADjKnYCByFVuY3OulqjyoOvSeIuaMs7KLJumMAO4qlp0O7AHViwbFG/kvly/CNfatpefy4ItM2UccIBVTYnRlc2JxYS29KbYU7l+1i8SBNI5oesFprkJYPfA+H/eYJc1UteVdOtj1gsAH5ycXATYELcAqI/ZTwWjyR2hqNXQELfXeDFPp+zqPefpKGE/Pa+zMYBn237i4Okp/s9ajqXuBXguMsx7302wIFgAQjGro64rqaGoNdiYGL0nX9i1nWdyvp5d8lo0eSYYtU7sOzVmLvrod+0d4NWy0qK04/aqslGEMVPkoy9rAl/lvqYzedH3/eS1RsfRXQprDJGh4uVS9fHW8sytW0OV+pjd76huWXCZIqfnt0aJq/q4LqjAkC/aawJNoZhFe01gMc07j40iHv9bw3F725yrQVTLXdUNqhQI3AAmDbBM02iLVJcPheMWkerA0vvs0C+/E3xiNQBv90/4rsym73eVu13UZyBzhsg/uyvX/rV2RaHm5/4LxVaRBpYpCcEAAAAASUVORK5CYII=";
+	this.colabeoIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAB3RJTUUH3QsVACku6vOhyQAAA2pJREFUOMt9lF1sVGUQhp85Z5daVKoWiUnLDRjQ2lViNMaiN1oCaIO09U4v6m7XthZsSC9EE70hwT9Cgok/ZS0Wok1IurvdQn81IvECpRbJntOlLTTBqgkWLkRoyrI9Z7w47bpdinP3zXzzzjfzvt8IefbutxPs2bQOgDePp/wzN50iVQpV1RARxxBmi5f7//5wy0NOfq6Re2hOjGaBwnHrpevpua9d1Z9VdUrhoqr+5qiemp65eSQcszZ7STEiw1MASD66zqiEBu1B19VKQAQwRE4iXEIpdVUr1MtzTEM62msC9VWHR9i8rngxWGO3VZR2tE+VChEmfIbsjVQHDucXDEet5ozqW8BqU6S3vTZQlW2zsdsGIONyQJUKQ6S/wDQqFoBa+1LZMQBEagOf3uE3KgyRE8CRbJWW497FpoS9sa4rqcGolWIJe6PH5ofzl3k9bhGMWhKKWtmumrq9IsaBqjIA0nP6CaAGtAJ8c/bPLNA7Q+N8tq2co6lLxY6yHzir8GsoarW+/+MF8/Ptj9Ax8ofXZnOPXeqqlglc8PtkeGfPKK9sKMmCjU3PzBfkqCEyrqpXXdXHHNV9k9OzBwEGz1/xCAjHrOczrvYZMHzo5UefWarNpm77yRuO2ynCgOuyIzd2X6F/1f4XH75sADjKnYCByFVuY3OulqjyoOvSeIuaMs7KLJumMAO4qlp0O7AHViwbFG/kvly/CNfatpefy4ItM2UccIBVTYnRlc2JxYS29KbYU7l+1i8SBNI5oesFprkJYPfA+H/eYJc1UteVdOtj1gsAH5ycXATYELcAqI/ZTwWjyR2hqNXQELfXeDFPp+zqPefpKGE/Pa+zMYBn237i4Okp/s9ajqXuBXguMsx7302wIFgAQjGro64rqaGoNdiYGL0nX9i1nWdyvp5d8lo0eSYYtU7sOzVmLvrod+0d4NWy0qK04/aqslGEMVPkoy9rAl/lvqYzedH3/eS1RsfRXQprDJGh4uVS9fHW8sytW0OV+pjd76huWXCZIqfnt0aJq/q4LqjAkC/aawJNoZhFe01gMc07j40iHv9bw3F725yrQVTLXdUNqhQI3AAmDbBM02iLVJcPheMWkerA0vvs0C+/E3xiNQBv90/4rsym73eVu13UZyBzhsg/uyvX/rV2RaHm5/4LxVaRBpYpCcEAAAAASUVORK5CYII=";
 	function parseURI(url) {
 		var m = String(url).replace(/^\s+|\s+$/g, '').match(/^([^:\/?#]+:)?(\/\/(?:[^:@]*(?::[^:@]*)?@)?(([^:\/?#]*)(?::(\d*))?))?([^?#]*)(\?[^#]*)?(#[\s\S]*)?/);
 		return ( m ? {
@@ -22,7 +22,7 @@ var DeMoboFavicon = function() {
 	};
 
 	this.turnOn = function() {
-		// this.change(this.demoboIcon);
+		// this.change(this.colabeoIcon);
 		this.change(this.onFavicon);
 	};
 
@@ -94,9 +94,9 @@ var DeMoboFavicon = function() {
 	};
 	this.renderIcon = function(URL) {
 		var img = new Image();
-		var demoboLogo = new Image();
+		var colabeoLogo = new Image();
 		var self = this;
-		demoboLogo.onload = function() {
+		colabeoLogo.onload = function() {
 			var uri = parseURI(URL);
 			if (uri.host) {
 				if (window.location.host == uri.host)
@@ -109,16 +109,16 @@ var DeMoboFavicon = function() {
 			self.turnOn();
 		};
 		// img.crossOrigin = 'anonymous';
-		img.onload = demoboIcon;
+		img.onload = colabeoIcon;
 		img.onerror = missingIcon;
 
-		function demoboIcon() {
+		function colabeoIcon() {
 			var canvas = document.createElement("canvas");
 			canvas.width = 32;
 			canvas.height = 32;
 			var ctx = canvas.getContext("2d");
 			ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
-			ctx.drawImage(demoboLogo, 0, 0, 32, 32);
+			ctx.drawImage(colabeoLogo, 0, 0, 32, 32);
 			self.onFavicon = canvas.toDataURL("image/png");
 
 			self.grayscale(ctx);
@@ -138,7 +138,7 @@ var DeMoboFavicon = function() {
 			ctx.strokeStyle = '#000000';
 			ctx.stroke();
 
-			ctx.drawImage(demoboLogo, 13, 13, 18, 18);
+			ctx.drawImage(colabeoLogo, 13, 13, 18, 18);
 			self.onFavicon = canvas.toDataURL("image/png");
 			
 			self.grayscale(ctx);
@@ -147,7 +147,7 @@ var DeMoboFavicon = function() {
 		}
 
 
-		demoboLogo.src = this.demoboIcon;
+		colabeoLogo.src = this.colabeoIcon;
 	};
 	this.change = function(iconURL) {
 		this.removeIcon()
@@ -172,10 +172,10 @@ var DeMoboFavicon = function() {
 	};
 	this.originalFavicon = this.getFavicon();
 	this.offFavicon = this.originalFavicon;
-	this.onFavicon = this.demoboIcon;
+	this.onFavicon = this.colabeoIcon;
 	// this.originalFavicon = this.getFavicon();
 	// this.offFavicon = '//www.google.com/s2/favicons?domain=' + window.location.host;
-	// this.onFavicon = this.demoboIcon;
+	// this.onFavicon = this.colabeoIcon;
 	// this.renderIcon(this.originalFavicon);
 };
 fav = new DeMoboFavicon();
