@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
     <link rel="stylesheet" href="css/simple-todos.css">
+    <link rel="stylesheet" href="css/app.css">
     <!-- start: Chrome Web Store -->
     <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/eccfcbafhnpojpjhdhlkoikpnbofhljf">
     <!-- end: Chrome Web Store -->
@@ -19,54 +20,56 @@
     <script data-main="js/main" src="js/libs/require/require.js"></script>
 </head>
 
-<body>
+<body class="">
     <div id="todoapp">
         <div class="container">
-            <div class="row">
-                <div class="page-header">
-                    <h1>Install Colabeo
-                        <small>You can co-browse any site in this tab and video chat</small>
-                        <a class="btn btn-cta btn-lg install-link" link="https://chrome.google.com/webstore/detail/eccfcbafhnpojpjhdhlkoikpnbofhljf">+ ADD TO CHROME</a>
-                    </h1>
-                </div>
-            </div>
-
-            <div class='row'>
-                <form action="http://google.com/cse">
-                    <div class='input-append' style="margin-top:50px; margin-left:30%">
-                        <img src="https://cdn1.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/32/social_google_box_white.png" class="img-circle">
-                        <input type="hidden" name="cx" value="017660757028075324243:h2powk7yzxu" />
-                        <!--<input type="hidden" name="ie" value="UTF-8" />-->
-                        <input class="span5" name="q" id="main_search" type="text" >
-                        <input class="btn btn-primary" type="submit" name="sa" value="search">
+            <div id = 'installationView'>
+                <div class="row">
+                    <div class="page-header">
+                        <h1>Install Colabeo
+                            <small>You can co-browse any site in this tab and video chat</small>
+                            <a class="btn btn-cta btn-lg install-link" link="https://chrome.google.com/webstore/detail/eccfcbafhnpojpjhdhlkoikpnbofhljf">+ ADD TO CHROME</a>
+                        </h1>
                     </div>
-                </form>
+               </div>
             </div>
-            <div class="row">
-                <div class="page-header">
-                    <h1>Speed Dial
-                        <small>Add your favorite co-browsing sites here</small>
-                    </h1>
+            <div id = 'mainView'>
+                <div class='row'>
+                    <form action="http://google.com/cse">
+                        <div class='input-append' style="margin-top:50px; margin-left:30%">
+                            <img src="https://cdn1.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/32/social_google_box_white.png" class="img-circle">
+                            <input type="hidden" name="cx" value="017660757028075324243:h2powk7yzxu" />
+                            <!--<input type="hidden" name="ie" value="UTF-8" />-->
+                            <input class="span5" name="q" id="main_search" type="text" >
+                            <input class="btn btn-primary" type="submit" name="sa" value="search">
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="page-header">
+                        <h1>Speed Dial
+                            <small>Add your favorite co-browsing sites here</small>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="create-todo" class="well">
+                        <input id="new-todo" placeholder="Type address to add to your Speed Dial. Ex, google.com" type="text" class="span8" />
+                        <span class="ui-tooltip-top help-inline" style="display:none;">Press Enter to add</span>
+                    </div>
+                </div>
+
+                <!--<div class="row">
+                    <div id="mark-all-done"></div>
+                </div>-->
+
+                <div class="row">
+                    <table id="todos" class="table table-bordered table-striped">
+                        <div id="todo-list" class="row"></div>
+                    </table>
                 </div>
             </div>
-
-            <div class="row">
-                <div id="create-todo" class="well">
-                    <input id="new-todo" placeholder="Type address to add to your Speed Dial. Ex, google.com" type="text" class="span8" />
-                    <span class="ui-tooltip-top help-inline" style="display:none;">Press Enter to add</span>
-                </div>
-            </div>
-            
-            <!--<div class="row">
-                <div id="mark-all-done"></div>
-            </div>-->
-            
-            <div class="row">
-                <table id="todos" class="table table-bordered table-striped">
-                    <div id="todo-list" class="row"></div>
-                </table>
-            </div>
-
             <!--<div class="row">
                 <div id="todo-stats"></div>
             </div>-->

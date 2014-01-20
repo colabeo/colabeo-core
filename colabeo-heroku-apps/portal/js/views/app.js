@@ -45,6 +45,8 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
                         window.open(url, '_blank');
                     }
                 });
+                if (window.colabeoBody) $('body').addClass("installed");
+                else $('body').addClass("uninstalled");
             });
         },
 

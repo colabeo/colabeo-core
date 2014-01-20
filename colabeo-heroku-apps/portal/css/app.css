@@ -1,0 +1,21 @@
+#installationView {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+
+.uninstalled #installationView {
+    display: block;
+}
+
+#mainView {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+
+.installed #mainView {
+    display: block;
+}
