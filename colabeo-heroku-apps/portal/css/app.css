@@ -31,31 +31,9 @@ body{
     overflow:hidden
 }
 
-#create-todo{
-    margin-top: 0px;
-    margin-left: 20px;
-    margin-bottom: 0px;
-    width: 100%;
-    padding: 0px;
-}
 
-#speed-dial{
-    background-color: rgba(0, 0, 0, 1.0);
-    width: 100%;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    position: absolute;
-    bottom: 0px;
-    height: 100px;
-}
 
-div h1{
-    color: #3398cd;
-}
 
-#speed-dial small{
-    color: #fefefe;
-}
 
 .show-item .todo-content {
     text-align: center;
@@ -82,18 +60,7 @@ div h1{
     display: block;
 }
 
-
-
-.google-bar {
-    background-color: rgba(185, 185, 185, 0.2);
-    border-radius: 5px;
-    border: none;
-    margin-top: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-    height: 50px;
-}
-
+/*header*/
 #new-todo{
     color: #fff;
     background-color: rgba(185, 185, 185, 0.2);
@@ -112,6 +79,24 @@ div h1{
     height: 150px;
 }
 
+
+#search-icon{
+    margin:auto;
+    color: #8b8b8b;
+    padding-top: 7px;
+    padding-left: 11px;
+}
+
+.google-bar {
+    background-color: rgba(185, 185, 185, 0.2);
+    border-radius: 5px;
+    border: none;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 50px;
+}
+
 #main_search{
     background-color: transparent;
     border: none;
@@ -122,16 +107,10 @@ div h1{
     width: 90%;
 }
 
+/*body*/
 #favor-sites{
     position: absolute;
     top:160px
-}
-
-#search-icon{
-    margin:auto;
-    color: #8b8b8b;
-    padding-top: 7px;
-    padding-left: 11px;
 }
 
 .page-header{
@@ -145,4 +124,32 @@ div h1{
 
 .todo-input {
     text-align: center;
+}
+
+
+/*footer*/
+div h1{
+    color: #3398cd;
+}
+
+#speed-dial small{
+    color: #fefefe;
+}
+
+#speed-dial{
+    background-color: rgba(0, 0, 0, 1.0);
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 0px;
+    height: 100px;
+}
+
+#create-todo{
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    width: 100%;
+    padding: 0px;
 }
