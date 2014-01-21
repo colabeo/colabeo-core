@@ -16,8 +16,6 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
 
         // Delegated events for creating new items, and clearing completed ones.
         events: {
-            "mouseleave .span3": "hideDelete",
-            "mouseenter .span3": "showDelete",
             "keypress #new-todo": "createOnEnter",
             "keyup #new-todo": "showTooltip",
             "click .todo-clear a": "clearCompleted",
@@ -95,6 +93,7 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
             var hostname = getHostName(this.input.val());
             return {
                 content: hostname,
+                contentID: hostname.split(".")[0],
                 order: Todos.nextOrder(),
                 done: false
             };
@@ -145,16 +144,6 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
                     'done': done
                 });
             });
-        },
-
-        showDelete:function(e){
-            $('.todo-destroy').addClass('toShow');
-            $('.todo-edit').addClass('toShow');
-        },
-
-        hideDelete:function(e){
-            $('.todo-destroy').removeClass('toShow');
-            $('.todo-edit').removeClass('toShow');
         }
 
     });
