@@ -2,7 +2,10 @@
     width: 100%;
     height: 100%;
     position: absolute;
+    top: 0px;
+    left: 0px;
     display: none;
+    background-color: rgba(0,0,0,0.6);
 }
 
 .uninstalled #installationView {
@@ -24,16 +27,46 @@
 }
 
 body{
-    background: url(../background.png);
+    background: url(../colabeoBackground.png);
     background-size:100%, 100%;
     background-repeat:no-repeat;
     background-color: black;
-    overflow:hidden
+    overflow:hidden;
 }
 
+#installationView div{
+    margin-top:20px;
+    margin-left: 30px;
+}
 
+#installationView img{
+    width: 180px;
+    margin-top: 80px;
+    margin-left: 80px;
+}
 
+#installationView h2{
+    margin-left: 55px;
+    color: lightgoldenrodyellow;
+}
 
+#installationView a{
+    margin-top: 30px;
+    margin-left: 72px;
+    border-radius: 10px;
+    height: 30px;
+    width: 170px;
+    background: #357a9c;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#168add", endColorstr="#007ee5");*/
+    background: -webkit-gradient(linear, left top, left bottom, from(#168add), to(#357a9c));
+    background: -moz-linear-gradient(top, #168add, #357a9c);
+    border: 1px solid #357a9c;
+    color: white;
+}
+
+#installationView p{
+    margin-top: 6px;
+}
 
 .show-item .todo-content {
     text-align: center;
