@@ -12,7 +12,7 @@ body {
 }
 
 #todo-list .todo-content {
-    margin: 10px;
+    text-align: center;
 }
 
 #todo-stats {
@@ -20,7 +20,9 @@ body {
 }
 
 #todo-list .show-item {
+    text-align: center;
     line-height: 30px;
+    margin-bottom: 10px;
 }
 
 #todo-list .todo-edit, #todo-list .todo-destroy, #todo-list .item-thumbnail {

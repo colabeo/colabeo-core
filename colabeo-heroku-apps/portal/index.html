@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
     <link rel="stylesheet" href="css/simple-todos.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
     <!-- start: Chrome Web Store -->
     <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/eccfcbafhnpojpjhdhlkoikpnbofhljf">
     <!-- end: Chrome Web Store -->
@@ -20,9 +22,12 @@
     <script data-main="js/main" src="js/libs/require/require.js"></script>
 </head>
 
-<body class="">
+<body>
     <div id="todoapp">
+        <!--<img src="file:///Users/jefflin/Desktop/colabeoBackground.png"/>-->
+        <!--<img style="-webkit-user-select: none; cursor: -webkit-zoom-in;" src="file:///Users/jefflin/Desktop/colabeoBackground.png" width="633" height="457"/>-->
         <div class="container">
+            <!--<img src="background.png"/>-->
             <div id = 'installationView'>
                 <div class="row">
                     <div class="page-header">
@@ -34,40 +39,39 @@
                </div>
             </div>
             <div id = 'mainView'>
-                <div class='row'>
-                    <form action="http://google.com/cse">
-                        <div class='input-append' style="margin-top:50px; margin-left:30%">
-                            <img src="https://cdn1.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/32/social_google_box_white.png" class="img-circle">
-                            <input type="hidden" name="cx" value="017660757028075324243:h2powk7yzxu" />
+                <div>
+                    <form action="http://google.com/cse" id="google-form">
+                        <div class='google-bar'>
+                            <!--<img src="https://cdn1.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/32/social_google_box_white.png" class="img-circle">-->
+                            <!--<input type="hidden" name="cx" value="017660757028075324243:h2powk7yzxu" />-->
                             <!--<input type="hidden" name="ie" value="UTF-8" />-->
-                            <input class="span5" name="q" id="main_search" type="text" >
-                            <input class="btn btn-primary" type="submit" name="sa" value="search">
+                            <i class="fa fa-search fa-2x" color="white" color="yellow" id="search-icon"></i>
+                            <input class="span5" name="q" id="main_search" type="text" placeholder = "Google Search">
+                            <!--<input class="btn btn-primary" type="submit" name="sa" value="search">-->
                         </div>
                     </form>
                 </div>
-                <div class="row">
+                <!--<div class="row">
+                    <div id="mark-all-done"></div>
+                </div>-->
+
+                <div class="row" id="favor-sites">
+                    <table id="todos" class="table table-bordered table-striped">
+                        <div id="todo-list"></div>
+                    </table>
+                </div>
+                <div id="speed-dial">
                     <div class="page-header">
                         <h1>Speed Dial
                             <small>Add your favorite co-browsing sites here</small>
                         </h1>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div id="create-todo" class="well">
+                <!--</div>-->
+                <!--<div class="row" id="create-todo">-->
+                    <div id="create-todo">
                         <input id="new-todo" placeholder="Type address to add to your Speed Dial. Ex, google.com" type="text" class="span8" />
                         <span class="ui-tooltip-top help-inline" style="display:none;">Press Enter to add</span>
                     </div>
-                </div>
-
-                <!--<div class="row">
-                    <div id="mark-all-done"></div>
-                </div>-->
-
-                <div class="row">
-                    <table id="todos" class="table table-bordered table-striped">
-                        <div id="todo-list" class="row"></div>
-                    </table>
                 </div>
             </div>
             <!--<div class="row">

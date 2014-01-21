@@ -1,12 +1,14 @@
 <a class="item-thumbnail" href="//<%= content %>">
-    <img src="http://mini.s-shot.ru/?<%= content %>" class="img-rounded">
+    <img src="http://mini.s-shot.ru/?<%= content %>" class="img-rounded" id="<%= content %>">
 </a>
-<div class="show-item">
+<div class="show-item" id="<%= content %>">
+    <span class="todo-destroy" id="<%= content %>"><i class="icon-remove icon-large"></i></span>
     <span class="todo-content"><%= content %></span>
+    <span class="todo-edit" id="<%= content %>"><i class="icon-pencil icon-large"></i></span>
 
-    <div class="pull-right item-buttons">
-        <span class="todo-edit"><i class="icon-pencil icon-large"></i></span>
-        <span class="todo-destroy"><i class="icon-remove icon-large"></i></span>
+    <!--<div class="pull-right item-buttons">-->
+        <!--<span class="todo-edit"><i class="icon-pencil icon-large"></i></span>-->
+        <!--<span class="todo-destroy"><i class="icon-remove icon-large"></i></span>-->
     </div>
 </div>
 
