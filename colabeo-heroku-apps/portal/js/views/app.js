@@ -45,8 +45,18 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
                         window.open(url, '_blank');
                     }
                 });
-                if (window.colabeoBody) $('body').addClass("installed");
-                else $('body').addClass("uninstalled");
+                setTimeout(function(){
+                    if (window.colabeoBody) {
+                        $('#mainView').fadeIn('slow');
+                        $('#installationView').hide();
+//                        $('body').addClass("installed");
+                    }
+                    else {
+                        $('#installationView').fadeIn('slow');
+                        $('#mainView').hide();
+//                        $('body').addClass("uninstalled");
+                    }
+                },1000);
             });
 
             var addView = new AddView();

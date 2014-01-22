@@ -48,7 +48,7 @@ body{
 
 #installationView h1{
     margin-left: 40px;
-    color: lightgoldenrodyellow;
+    color: white;
 }
 
 #installationView a{
@@ -142,6 +142,8 @@ input#main_search{
 #favor-sites{
     position: relative;
     margin-top:30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(124, 124, 124,1);
 }
 
 .page-header{
@@ -179,8 +181,8 @@ input#main_search{
 
 div#create-todo {
     text-align: center;
-    margin-top: 10px;
-    height: 50px;
+    margin-top: 0px;
+    height: 100px;
 }
 
 input#new-todo{
@@ -193,5 +195,4 @@ footer{
     bottom: 0px;
     z-index: 10;
     left:10px;
-    height: 4em;
 }

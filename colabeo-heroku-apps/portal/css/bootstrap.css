@@ -1299,7 +1299,7 @@ table {
   padding: 4px 5px;
 }
 .table-bordered {
-  border: 1px solid #8b8b8b;
+  /*border: 1px solid #8b8b8b;*/
   border-collapse: separate;
   *border-collapse: collapsed;
   border-left: 0;
