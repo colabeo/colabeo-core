@@ -130,6 +130,7 @@ body{
     color: #8b8b8b;
     padding-top: 7px;
     padding-left: 11px;
+    float:left;
 }
 
 .google-bar {
@@ -148,7 +149,8 @@ input#main_search{
     color: #fff;
     font-size: 20px;
     height: 44px;
-    width: 90%;
+    float:left;
+    width: 89%;
 }
 
 /*body*/
