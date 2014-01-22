@@ -9,7 +9,9 @@ define(['jquery', 'underscore', 'backbone','text!templates/addButton.html'], fun
 
         template: _.template(addButton),
 
-        events:{},
+        events:{
+            "click" : "addFavorSite"
+        },
 
         initialize: function(){
             _.bindAll(this, 'render');
@@ -19,6 +21,10 @@ define(['jquery', 'underscore', 'backbone','text!templates/addButton.html'], fun
         render: function(){
             $(this.el).html(this.template());
             return this;
+        },
+
+        addFavorSite: function(){
+            $('#new-todo').toggle();
         }
 
     });

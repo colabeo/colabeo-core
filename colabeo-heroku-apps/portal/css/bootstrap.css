@@ -149,7 +149,7 @@ a:hover {
 }
 .row {
   /*margin-left: -20px;*/
-  margin: 20px;
+  /*margin: 20px;*/
   *zoom: 1;
 }
 .row:before,

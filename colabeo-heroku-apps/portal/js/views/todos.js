@@ -14,8 +14,8 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/todos.html'], functi
 
         // The DOM events specific to an item.
         events: {
-            "mouseleave": "hideDelete",
-            "mouseenter": "showDelete",
+            "mouseleave": "toggleShow",
+            "mouseenter": "toggleShow",
             "click .todo-content": "toggleDone",
             "click .todo-indicator": "toggleDone",
             "click .todo-edit": "edit",
@@ -94,14 +94,10 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/todos.html'], functi
             this.model.clear();
         },
 
-        showDelete:function(e){
-            this.$('.todo-destroy').addClass('toShow');
-            this.$('.todo-edit').addClass('toShow');
-        },
+        toggleShow:function (){
+            this.$('.todo-destroy').toggle()
+            this.$('.todo-edit').toggle();
 
-        hideDelete:function(e){
-            this.$('.todo-destroy').removeClass('toShow');
-            this.$('.todo-edit').removeClass('toShow');
         }
 
     });
