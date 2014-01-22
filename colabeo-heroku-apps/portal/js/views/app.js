@@ -93,7 +93,6 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
             var hostname = getHostName(this.input.val());
             return {
                 content: hostname,
-                contentID: hostname.split(".")[0],
                 order: Todos.nextOrder(),
                 done: false
             };
