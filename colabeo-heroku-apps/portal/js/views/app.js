@@ -10,7 +10,7 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
 
         // Our template for the line of statistics at the bottom of the app.
         statsTemplate: _.template(statsTemplate),
-        
+
         // Our template for marking all todo done
         markAllDoneTemplate: _.template(markAllDoneTemplate),
 
