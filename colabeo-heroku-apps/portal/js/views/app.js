@@ -1,6 +1,6 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, forin: true, maxerr: 50, regexp: true */
 /*global define, $, FileError, brackets, window */
-define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 'text!templates/stats.html', 'text!templates/markalldone.html'], function ($, _, Backbone, Todos, TodoView, statsTemplate, markAllDoneTemplate) {
+define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 'views/addButton', 'text!templates/stats.html', 'text!templates/markalldone.html'], function ($, _, Backbone, Todos, TodoView, AddView, statsTemplate, markAllDoneTemplate) {
     'use strict';
     var AppView = Backbone.View.extend({
 
@@ -48,6 +48,9 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
                 if (window.colabeoBody) $('body').addClass("installed");
                 else $('body').addClass("uninstalled");
             });
+
+            var addView = new AddView();
+            this.$("#todo-list").append(addView.render().el);
         },
 
         // Re-rendering the App just means refreshing the statistics -- the rest
@@ -74,7 +77,7 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
             var view = new TodoView({
                 model: todo
             });
-            this.$("#todo-list").append(view.render().el);
+            this.$("#todo-list").prepend(view.render().el);
         },
 
         // Add all items in the **Todos** collection at once.
