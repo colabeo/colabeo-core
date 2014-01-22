@@ -1,5 +1,5 @@
 {
-   "name": "Colabeo",
+   "name": "Colabeo Private Beta",
    "description": "Colabeo Hangout with co-browsing",
    "browser_action":
    {
@@ -29,6 +29,6 @@
    "permissions": [
      "*://*/*", "tabs", "notifications"
    ],
-   "version": "0.0.8",
+   "version": "0.0.9",
    "manifest_version": 2
 }

@@ -112,7 +112,7 @@ function setBWIcon() {
 }
 
 function call(outgoingId) {
-	var outgoingCallRef = new Firebase('https://de-berry.firebaseio-demo.com/calls/' + outgoingId);
+	var outgoingCallRef = new Firebase('https://colabeo.firebaseio.com/calls/' + outgoingId);
 	outgoingCallRef.push({
 		name : myID
 	});
@@ -126,7 +126,7 @@ function initializeIncomingCall() {
 		incomingCallRef.off('child_changed', onRemove);
 	}
 	console.log("init " + myID);
-	incomingCallRef = new Firebase('https://de-berry.firebaseio-demo.com/calls/' + myID);
+	incomingCallRef = new Firebase('https://colabeo.firebaseio.com/calls/' + myID);
 	incomingCallRef.on('child_added', onAdd);
 	incomingCallRef.on('child_removed', onRemove);
 	incomingCallRef.on('child_changed', onRemove);
@@ -177,7 +177,8 @@ function stopRingtone() {
 	isCalling = false;
 	var e = document.getElementById('ringtone');
 	e && (e.pause() || (e.currentTime = 0));
-};
+}
+
 function startRingtone() {
 	isCalling = true;
 	var e = document.getElementById('ringtone');
@@ -268,8 +269,9 @@ function launchDashboard() {
 		// url : "http://kings-landing-nodejs-58995.usw1.actionbox.io:3000",
 		// url : "http://colabeo-alpha.herokuapp.com",
 		// url : "http://10.0.0.19:1337",
-		url : "http://localhost:1337",
-		// url : "http://192.168.161.153:1337",
+//		url : "http://localhost:1337",
+//		url : "http://192.168.161.153:1337",
+        url : "https://dashboard.colabeo.com",
 		type : 'popup',
 		width : w,
 		height : maxHeight,
