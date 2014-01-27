@@ -66,9 +66,18 @@ chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 	if (targetTab && targetTab.id == tabId) {
 		console.log("onUpdate", changeInfo);
-		chrome.tabs.sendMessage(targetTab.id, {
-			action : 'toggleKoala'
-		});
+        if (changeInfo.status=='loading' && dashboardTab.id) {
+            chrome.tabs.sendMessage(dashboardTab.id, {
+                action : 'updateUrl',
+                url: changeInfo.url
+            });
+        } else if (changeInfo.status=='complete' && targetTab.id) {
+            setTimeout(function(){
+                chrome.tabs.sendMessage(targetTab.id, {
+                    action : 'toggleKoala'
+                });
+            }, 300);
+        }
 	}
 });
 

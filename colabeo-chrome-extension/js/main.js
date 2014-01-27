@@ -61,14 +61,17 @@ if (!document.getElementById('toggle')) {
 	function onMessage(message, sender, sendResponse) {
 		// console.log("onMessage", message.action);
 		if (message.action === 'toggleKoala') {
-			console.log("onMessage toggleKoala");
+//			console.log("onMessage toggleKoala");
 			if (!toggled) {
-				console.log("onMessage toggleKoala click");
+//				console.log("onMessage toggleKoala click");
 				document.getElementById('toggle').click();
 				toggled = true;	
 			}
 			//favicon off message
-		} else if (message.action === 'load') {
+		} else if (message.action === 'updateUrl') {
+            console.log("onMessage updateUrl" + message.url);
+            sendToFrontPage("FromExtension", message);
+        } else if (message.action === 'load') {
 			document.getElementById('load').click();
 			var detail = {
 				type : "input",
