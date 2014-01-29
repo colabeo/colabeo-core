@@ -55,6 +55,11 @@ if (!document.getElementById('toggle')) {
 	colabeoBody.addEventListener("FromKoala", function(e) {
 		console.log("FromKoala", e.detail);
 		chrome.runtime.sendMessage(e.detail);
+        if (e.detail.data && e.detail.data.action == 'updateUrl') {
+            var message = e.detail.data;
+            message.source = "remote";
+            sendToFrontPage("FromExtension", message);
+        }
 	});
 	
 	var toggled = false;
@@ -70,6 +75,7 @@ if (!document.getElementById('toggle')) {
 			//favicon off message
 		} else if (message.action === 'updateUrl') {
             console.log("onMessage updateUrl" + message.url);
+            message.source = "local";
             sendToFrontPage("FromExtension", message);
         } else if (message.action === 'load') {
 			document.getElementById('load').click();

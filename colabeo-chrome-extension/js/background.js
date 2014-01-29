@@ -64,14 +64,20 @@ chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
 
 //catch refresh event
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    // tagetTab change bug on some websites
+    if (tab.pinned && tab.index==0) {
+        targetTab = tab;
+    }
 	if (targetTab && targetTab.id == tabId) {
 		console.log("onUpdate", changeInfo);
-        if (changeInfo.status=='loading' && dashboardTab.id) {
+        if (changeInfo.status=='loading' && dashboardTab.id && changeInfo.url) {
             chrome.tabs.sendMessage(dashboardTab.id, {
                 action : 'updateUrl',
                 url: changeInfo.url
             });
-        } else if (changeInfo.status=='complete' && targetTab.id) {
+        }
+
+        if (changeInfo.status=='complete' && targetTab.id) {
             setTimeout(function(){
                 chrome.tabs.sendMessage(targetTab.id, {
                     action : 'toggleKoala'
