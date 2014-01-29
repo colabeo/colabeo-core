@@ -5,10 +5,11 @@ define(function(require, exports, module) {
     var EventHandler = require('famous/EventHandler');
     var FavorItemView  = require('app/view/FavorItemView');
     var GridLayout  = require('app/custom/GridLayout');
-    var Surface      = require('famous/Surface');
-    var View             = require('famous/View');
     var Matrix = require('famous/Matrix');
-    var SequentialLayout = require('famous-views/SequentialLayout');
+    var Scrollview       = require('famous-views/Scrollview');
+    var Surface      = require('famous/Surface');
+    var Util             = require('famous/Utility');
+    var View             = require('famous/View');
 
     function FavorView(options) {
         View.call(this);
@@ -36,8 +37,9 @@ define(function(require, exports, module) {
             transition: true
         });
 
-        this.sequentialLayout = new SequentialLayout({
-            itemSpacing: 2
+        this.scrollview = new Scrollview({
+            direction: Util.Direction.Y,
+            margin:10000
         });
 
         this.addFavorSurface = new Surface({
@@ -53,8 +55,9 @@ define(function(require, exports, module) {
 
 
         this.loadFavor();
-        this._add(this.gridLayout);
-        this._add(this.sequentialLayout);
+        this.scrollview.sequenceFrom([this.gridLayout]);
+        this.pipe(this.scrollview);
+        this._link(this.scrollview);
 
         this.addFavorSurface.on('click', function(e){
             this.eventOutput.emit('editFavor');

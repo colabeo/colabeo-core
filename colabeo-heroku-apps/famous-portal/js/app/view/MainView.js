@@ -27,13 +27,14 @@ define(function(require, exports, module) {
             }
         });
 
-        this.copyRightSurface = new Surface({
+        this.footerSurface = new Surface({
             size:[undefined,this.constant.footerHeight],
-            content:'<div>&copy Colabeo.Inc</div>',
+            content:'<div class="copy-right">&copy 2014 Colabeo.Inc</div><div class="leave-a-message">Leave a Message</div>',
             properties:{
                 color: "white",
                 fontSize:30,
-                background:"rgba(0,0,0,0.9)"
+                background:"rgba(0,0,0,0.9)",
+                zIndex:10
             }
         });
 
@@ -44,7 +45,7 @@ define(function(require, exports, module) {
         this.headerFooterLayout.id['header'].link(this.header);
         this.headerFooterLayout.id['content'].link(this.contentArea);
 //        this.headerFooterLayout.id['footer'].link(this.navigation);
-        this.headerFooterLayout.id['footer'].link(this.copyRightSurface);
+        this.headerFooterLayout.id['footer'].link(this.footerSurface);
 
         this.eventInput.pipe(this.contentArea);
 

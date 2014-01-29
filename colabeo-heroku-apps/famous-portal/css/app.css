@@ -64,6 +64,16 @@ input#google-input-search-bar{
     background-color: rgba(185, 185, 185,0.2);
 }
 
+.surface .copy-right{
+    padding: 16px;
+    float: left;
+}
+
+.surface .leave-a-message{
+    padding: 16px;
+    float: right;
+}
+
 /*Favor View*/
 div.favor-item{
     box-shadow: 0 0 0 10px transparent;

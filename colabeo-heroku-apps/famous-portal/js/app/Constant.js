@@ -4,7 +4,7 @@ define(function(require, exports, module) {
 
         this.colabeoLogoWidth = 200;
         this.headerHeight = 190;
-        this.footerHeight = 20;
+        this.footerHeight = 50;
         this.favorItemWidth = 200;
         this.favorItemHeight = 150;
         this.favorPaddingTop = 20;
