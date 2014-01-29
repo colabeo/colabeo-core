@@ -1,0 +1,229 @@
+/*Main View*/
+body{
+    /*background: url(../colabeoBackground.jpg);*/
+    /*background-size:100%, 100%;*/
+    /*background-repeat:no-repeat;*/
+    background-color: black;
+    overflow-x:hidden;
+}
+
+.colabeo-background{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 100%;
+    max-width: none;
+    opacity:0.6;
+    background-color: black;
+    min-width: 100%;
+    /*width: 100%;*/
+}
+
+.colabeo-logo{
+    width: 140px;
+    float: left;
+    margin: 22px;
+}
+
+.google-form{
+    float: left;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-bottom: solid 1px rgb(124, 124, 124);
+    height: 110px;
+}
+
+.google-search-bar {
+    border: none;
+    margin-top: 67px;
+    height: 50px;
+    width: 120%;
+}
+
+#google-search-icon{
+    margin: auto;
+    color: #8b8b8b;
+    padding: 8px;
+    padding-left: 11px;
+    float: left;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: rgba(185, 185, 185, 0.2);
+}
+
+input#google-input-search-bar{
+    border: none;
+    margin: auto;
+    color: #fff;
+    font-size: 20px;
+    height: 46px;
+    float: left;
+    width: 50%;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: rgba(185, 185, 185,0.2);
+}
+
+/*Favor View*/
+div.favor-item{
+    box-shadow: 0 0 0 10px transparent;
+    background: rgba(255,255,255,0);
+    -webkit-transition: box-shadow .6s ease-in-out;
+    -moz-transition: box-shadow .6s ease-in-out;
+}
+
+div.favor-item:hover{
+    box-shadow: 0 0 0 2px rgba(21, 49, 63, 0.80);
+    -webkit-transition: box-shadow .4s ease-in-out;
+    -moz-transition: box-shadow .4s ease-in-out;
+}
+
+img.img-rounded{
+    /*height:150px;*/
+    /*width: 200px;*/
+    border-radius: 5px;
+}
+
+.favor-item .show-item{
+    text-align: center;
+}
+
+.favor-item .fa-minus-circle{
+    color: #d32f27;
+    float:left;
+    cursor: pointer;
+}
+
+.favor-item .favor-content {
+    /*text-align: center;*/
+    float: right;
+    color: #fefefe;
+}
+
+.favor-item .fa-pencil{
+    color: #68b3f6;
+    float: right;
+    cursor: pointer;
+}
+
+.add-surface{
+    border: solid 1px #68b3f6;
+    border-radius: 5px;
+    box-shadow: 0 0 0 10px transparent;
+    background: rgba(255,255,255,0.1);
+    -webkit-transition: box-shadow .6s ease-in-out;
+    -moz-transition: box-shadow .6s ease-in-out;
+}
+
+.add-surface:hover{
+    box-shadow: 0 0 0 2px rgba(53, 122, 156, 0.80);
+    -webkit-transition: box-shadow .4s ease-in-out;
+    -moz-transition: box-shadow .4s ease-in-out;
+}
+
+.add-surface .fa-plus{
+    margin:35px;
+    color: #68b3f6;
+}
+
+.toHide{
+    display: none;
+}
+
+/*Edit View*/
+.edit-favor-surface {
+    width: 70
+}
+
+.edit-favor-surface .title{
+    background-color: rgba(69, 69, 69, 0.99);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 30px;
+    padding: 25px;
+    font-size: 25px;
+    text-align: left;
+    color: rgba(254, 254, 254, 0.90);
+}
+
+.edit-favor-surface .fa-times{
+    float:right;
+    color: rgba(2, 161, 221, 0.90);
+    cursor: pointer;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+.edit-favor-surface .form-group-url{
+    float: left;
+    margin: 20px;
+    margin-right: 0px;
+}
+
+.edit-favor-surface .form-group-title{
+    float: right;
+    margin: 20px;
+    margin-left: 0px;
+}
+
+.edit-favor-surface .form-group-url div:first-child{
+    text-align: left;
+}
+
+.edit-favor-surface .form-group-title div:first-child{
+    text-align: left;
+    padding-top: 5px;
+}
+
+.edit-favor-surface .red-star{
+    color: rgb(191, 67, 53);
+    font-size: 20px;
+}
+
+.edit-favor-surface .span{
+    color: rgba(254, 254, 254, 0.90);
+}
+
+.edit-favor-surface #input-url, .edit-favor-surface #input-title{
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    height: 35px;
+    width: 270px;
+    color: rgba(30, 112, 143, 0.90);
+}
+
+
+.edit-favor-surface > div:last-child{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(69, 69, 69, 0.99);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.edit-favor-surface > div:last-child .red-star{
+    float: left;
+    padding-left: 27px;
+    margin-top: 30px;
+}
+
+.edit-favor-surface > div:last-child > span{
+    float: left;
+    margin-top: 30px;
+}
+
+.edit-favor-surface .done-favor{
+    float: right;
+    margin: 20px;
+    color: rgba(254, 254, 254, 0.90);
+    background: rgba(2, 161, 221, 0.90);
+    width: 200px;
+    height: 34px;
+    border-radius: 5px;
+    padding-top: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
