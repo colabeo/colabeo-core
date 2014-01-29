@@ -1,6 +1,7 @@
 {
-   "name": "Colabeo Private Beta",
-   "description": "Colabeo Hangout with co-browsing",
+   "name": "Colabeo",
+   "description": "Collaborative Web with Videochat",
+   "short_name": "Colabeo",
    "browser_action":
    {
 	  "default_icon": "images/colabeo19.png",
@@ -29,6 +30,6 @@
    "permissions": [
      "*://*/*", "tabs", "notifications"
    ],
-   "version": "0.0.9",
+   "version": "0.0.12",
    "manifest_version": 2
 }
