@@ -69,8 +69,8 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
         targetTab = tab;
     }
 	if (targetTab && targetTab.id == tabId) {
-		console.log("onUpdate", changeInfo);
         if (changeInfo.status=='loading' && dashboardTab.id && changeInfo.url) {
+            console.log("onUpdate url:", changeInfo.url);
             chrome.tabs.sendMessage(dashboardTab.id, {
                 action : 'updateUrl',
                 url: changeInfo.url
@@ -78,13 +78,28 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
         }
 
         if (changeInfo.status=='complete' && targetTab.id) {
-            setTimeout(function(){
-                chrome.tabs.sendMessage(targetTab.id, {
-                    action : 'toggleKoala'
-                });
-            }, 300);
+            console.log("onUpdate complete");
+            chrome.tabs.sendMessage(targetTab.id, {
+                action : 'toggleKoala'
+            });
         }
 	}
+});
+chrome.tabs.onReplaced.addListener(function(addedTabId, removedTabId) {
+    console.log(targetTab.id, addedTabId, removedTabId);
+    chrome.tabs.get(addedTabId, function(tab) {
+        if (tab.pinned && tab.index==0) {
+            targetTab = tab;
+            console.log("onReplaced url and complete:", targetTab.url);
+            chrome.tabs.sendMessage(dashboardTab.id, {
+                action : 'updateUrl',
+                url: targetTab.url
+            });
+            chrome.tabs.sendMessage(targetTab.id, {
+                action : 'toggleKoala'
+            });
+        }
+    });
 });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
