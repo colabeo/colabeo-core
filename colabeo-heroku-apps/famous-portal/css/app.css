@@ -21,14 +21,16 @@ body{
 
 .colabeo-logo {
     float: left;
-    margin-left:20px;
-    margin-top:15px;
-    color: #68b3f6;
+    margin-left: 8%;
+    margin-top: 5px;
+    color: white;
+    font-size: 50px;
+    line-height: 40px;
 }
 
 .colabeo-logo .logo{
     width: 40px;
-    /*margin: 22px;*/
+    padding-top: 5px;
 }
 
 .google-form{
