@@ -4,7 +4,7 @@
 	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
 	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
 ]>
-<svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="1123.992" height="1238.832"
+<svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="1123.992" height="730.832"
 	 viewBox="0 0 1123.992 1238.832" overflow="visible" enable-background="new 0 0 1123.992 1238.832" xml:space="preserve">
 <path fill-rule="evenodd" clip-rule="evenodd" fill="#63ADD0" d="M614.592,706.536c110.735,0,209.52-50.976,274.319-130.608
 	l-49.392-49.392c-51.912,67.32-133.344,110.736-224.928,110.736c-156.744,0-283.896-127.152-283.896-283.968
@@ -13,5 +13,4 @@
 <path fill-rule="evenodd" clip-rule="evenodd" fill="#63ADD0" d="M756.504,477.936c73.943,0,133.919-59.976,133.919-133.92
 	s-59.976-133.92-133.919-133.92c-73.944,0-133.92,59.976-133.92,133.92S682.56,477.936,756.504,477.936L756.504,477.936z
 	 M737.784,248.616c-40.968,7.992-72.72,41.688-77.76,83.592h33.12c4.392-23.76,21.815-42.912,44.64-49.896V248.616z"/>
-
 </svg>

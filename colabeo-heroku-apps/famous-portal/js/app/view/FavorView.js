@@ -4,7 +4,7 @@ define(function(require, exports, module) {
     var EditView = require('app/view/EditView');
     var EventHandler = require('famous/EventHandler');
     var FavorItemView  = require('app/view/FavorItemView');
-    var GridLayout  = require('app/custom/GridLayout');
+    var GridLayout  = require('app/custom/GridLayout_Bon');
     var Matrix = require('famous/Matrix');
     var Scrollview       = require('famous-views/Scrollview');
     var Surface      = require('famous/Surface');
@@ -31,6 +31,10 @@ define(function(require, exports, module) {
             icon: '<i class="fa fa-clock-o"></i>'
         };
 
+        this.gridView = new View({
+            size:[undefined,undefined]
+        });
+
         this.gridLayout = new GridLayout({
             dimensions:[this.c.gridLayoutCol,this.c.gridLayoutRow],
             cellSize: [this.c.favorItemWidth + this.c.favorPaddingLeft, this.c.favorItemHeight + this.c.favorPaddingTop],
@@ -52,10 +56,11 @@ define(function(require, exports, module) {
             },
             content: '<i class="fa fa-plus fa-5x"/>'
         });
+        this.addFavorSurface.pipe(this.eventOutput);
 
-
-        this.loadFavor();
-        this.scrollview.sequenceFrom([this.gridLayout]);
+//        this.loadFavor();
+        this.gridView._link(this.gridLayout);
+        this.scrollview.sequenceFrom([this.gridView]);
         this.pipe(this.scrollview);
         this._link(this.scrollview);
 

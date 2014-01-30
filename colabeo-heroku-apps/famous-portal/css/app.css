@@ -141,99 +141,50 @@ img.img-rounded{
 }
 
 /*Edit View*/
-.edit-favor-surface {
-    width: 70
-}
-
 .edit-favor-surface .title{
-    background-color: rgba(69, 69, 69, 0.99);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     height: 30px;
     padding: 25px;
     font-size: 25px;
-    text-align: left;
+    text-align: center;
     color: rgba(254, 254, 254, 0.90);
 }
 
-.edit-favor-surface .fa-times{
+.edit-favor-surface .fa-times-circle-o{
     float:right;
-    color: rgba(2, 161, 221, 0.90);
+    color: rgba(211, 47, 39, 0.90);
     cursor: pointer;
     font-size: 24px;
     cursor: pointer;
 }
 
 
-.edit-favor-surface .form-group-url{
-    float: left;
-    margin: 20px;
-    margin-right: 0px;
-}
-
-.edit-favor-surface .form-group-title{
-    float: right;
-    margin: 20px;
-    margin-left: 0px;
-}
-
-.edit-favor-surface .form-group-url div:first-child{
-    text-align: left;
-}
-
-.edit-favor-surface .form-group-title div:first-child{
-    text-align: left;
-    padding-top: 5px;
-}
-
-.edit-favor-surface .red-star{
-    color: rgb(191, 67, 53);
-    font-size: 20px;
-}
-
-.edit-favor-surface .span{
-    color: rgba(254, 254, 254, 0.90);
-}
-
-.edit-favor-surface #input-url, .edit-favor-surface #input-title{
+.edit-favor-surface #input-url{
     border: none;
     border-radius: 5px;
     font-size: 20px;
     height: 35px;
-    width: 270px;
+    width: 70%;
     color: rgba(30, 112, 143, 0.90);
 }
 
 
-.edit-favor-surface > div:last-child{
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    background-color: rgba(69, 69, 69, 0.99);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.edit-favor-surface > div:last-child .red-star{
-    float: left;
-    padding-left: 27px;
-    margin-top: 30px;
-}
-
-.edit-favor-surface > div:last-child > span{
-    float: left;
-    margin-top: 30px;
-}
 
 .edit-favor-surface .done-favor{
     float: right;
-    margin: 20px;
     color: rgba(254, 254, 254, 0.90);
     background: rgba(2, 161, 221, 0.90);
-    width: 200px;
+    width: 120px;
     height: 34px;
     border-radius: 5px;
     padding-top: 8px;
     cursor: pointer;
     font-size: 20px;
+    margin-top: -39px;
+    margin-right: -45px;
+}
+
+.edit-favor-surface .suggestions-url{
+    float:left;
+    position: absolute;
+    bottom: 10px;
 }

@@ -14,6 +14,7 @@ define(function(require, exports, module) {
     var EditView = require('app/view/EditView');
 
     var FavorCollection = require('app/models/FavorCollection');
+    var SuggestionsCollection = require('app/models/SuggestionsCollection');
 
     var favorViewController = require('app/control/FavorViewController');
 
@@ -26,6 +27,7 @@ define(function(require, exports, module) {
 
 
         this.favorCollection = new FavorCollection();
+        this.suggestionsCollection = new SuggestionsCollection();
 
         var favorSection = new FavorView({collection:this.favorCollection});
         favorSection.pipe(this.eventOutput);
@@ -38,7 +40,7 @@ define(function(require, exports, module) {
         mainView.select(mainView.options.sections[0].title);
 
 
-        this.editView = new EditView();
+        this.editView = new EditView({collection:this.suggestionsCollection});
         this.editViewLightBox = new LightBox();
         mainDisplay.add(this.editViewLightBox);
         this.editView.pipe(this.eventOutput);
@@ -51,6 +53,7 @@ define(function(require, exports, module) {
         colabeo = {};
         colabeo.mainView = mainView;
         colabeo.favorSection = favorSection;
+        colabeo.editSection = this.editView;
     }
 
     MainController.prototype.checkInstallation = function(done) {
@@ -58,8 +61,8 @@ define(function(require, exports, module) {
     };
 
     MainController.prototype.onEditFavor = function(){
-        this.editView.renderFavor(undefined);
         this.editViewLightBox.show(this.editView);
+        this.editView.renderFavor(undefined);
     };
 
     MainController.prototype.onGoBack = function(e){

@@ -1,26 +1,33 @@
 define(function(require, exports, module) {
     // Import core Famous dependencies
-    var View         = require('famous/View');
+    var constant = require('app/Constant');
     var Surface      = require('famous/Surface');
     var Easing = require('famous-animation/Easing');
-    var Favor = require('app/models/Favor');
+    var EditItemView = require('app/view/EditItemView');
+    var Suggestions = require('app/models/Suggestions');
+    var GridLayout  = require('app/custom/GridLayout');
+    var HeadFooterLayout = require('famous-views/HeaderFooterLayout');
     var LightBox = require('app/custom/LightBox');
     var Mod          = require("famous/Modifier");
     var Matrix       = require("famous/Matrix");
+    var View         = require('famous/View');
 
-    function editView() {
+    function editView(options) {
         View.call(this);
+
+        this.constant = new constant();
+
+        this.Layout = new HeadFooterLayout();
+
+        this.gridLayout = new GridLayout({
+            dimensions: [this.constant.gridLayoutCol, this.constant.gridLayoutRow],
+            transition: true
+        });
 
         this.options = {
             inTransform: Matrix.identity,
-//            inOpacity: 1,
-//            inOrigin: [0.5, 0.5],
             outTransform: Matrix.identity,
-//            outOpacity: 1,
-//            outOrigin: [0.5, 0.5],
             showTransform: Matrix.identity,
-//            showOpacity: 1,
-//            showOrigin: [0.5, 0.5],
             inTransition: {duration: 0},
             outTransition: {duration: 300},
             overlap: true
@@ -30,16 +37,16 @@ define(function(require, exports, module) {
         this.bigSurface = new Surface({
             size: [undefined, undefined],
             properties:{
-                background: "rgba(60, 66, 70, 0.60)",
+                background: "rgba(59, 59, 59, 0.95)",
                 zIndex: 1000
             }
         });
         this.editSurface = new Surface({
             classes:['edit-favor-surface'],
-            size: [600, 300],
+            size: [0.8*window.innerWidth, this.constant.headerHeight],
             properties:{
                 borderRadius: "10px",
-                background: "rgba(59, 59, 59, 0.90)",
+                marginLeft: "10%",
                 color: 'rgba(245, 236, 236,1)',
                 textAlign: "center",
                 zIndex:1001
@@ -47,24 +54,28 @@ define(function(require, exports, module) {
         });
 
         this.editLightBox = new LightBox({
-            inTransform: Matrix.scale(0.001,0.001,0.001),
-            inOpacity: 1,
-            inOrigin: [0.5, 0.5],
-            outTransform: Matrix.scale(0.001,0.001,0.001),
-            outOpacity: 1,
-            outOrigin: [0.5, 0.5],
+            inTransform: Matrix.scale(4,4,4),
+            inOpacity: 0.1,
+            inOrigin: [0., 0.],
+            outTransform: Matrix.scale(10,10,10),
+            outOpacity: 0.1,
+            outOrigin: [0., 0.],
             showTransform: Matrix.identity,
             showOpacity: 1,
-            showOrigin: [0.5, 0.5],
-            inTransition: {duration: 500, curve: Easing.inQuadNorm()},
+            showOrigin: [0., 0.],
+            inTransition: {duration: 400, curve: Easing.inQuadNorm()},
             outTransition: {duration: 300, curve: Easing.outQuintNorm()}
         });
+
+        this.Layout.id['header'].link(this.editSurface);
+        this.Layout.id['content'].link(this.gridLayout);
 
         this._add(this.bigSurface);
         this._add(this.editLightBox);
 
 
         this.editSurface.on('click',function(e){
+            console.log(e);
             var target = $(e.target);
             if (target.hasClass('back-button')) {
 
@@ -77,6 +88,21 @@ define(function(require, exports, module) {
 
             }
         }.bind(this));
+
+        this.collection = options.collection;
+        this.collection.on('all', function(e, model, collection, options) {
+            switch(e)
+            {
+                case 'remove':
+                case 'sync':
+                    this.loadSuggestions();
+                    break;
+            }
+        }.bind(this));
+        this.collection.fetch();
+        if (this.collection.length == 0) {
+            this.createDefaultList();
+        }
     }
 
     editView.prototype = Object.create(View.prototype);
@@ -85,42 +111,44 @@ define(function(require, exports, module) {
     editView.prototype.renderFavor = function(model) {
         this.newContact = {};
         this.model=model;
-        var title = '<div class="title">New Favor<i class="fa fa-times back-button"></i></div>';
-        if (this.model instanceof Favor) title = 'Edit Favor';
-        var html = '<form role="form">';
-        html += '<div class="form-group-url"><div><span class="red-star">*</span><span>Website URL</span></div>';
-        html += '<div><input type="text" class="form-control" id="input-url" placeholder="URL" name="url"';
+        var title = '<div class="title"><i class="fa fa-arrow-circle-o-down fa-lg"></i>  Add to speed Dial<i class="fa fa-times-circle-o back-button"></i></div>';
+        var html = '<div><form role="form">';
+        html += '<input type="text" class="form-control" id="input-url" placeholder="Type URL to add your favorite website" name="url"';
         if (this.model)
             html += ' value="' + this.model.get('url') + '"';
-        html += '></div></div>';
-        html += '<div class="form-group-title"><div><span>Title</span></div>';
-        html += '<div><input type="text" class="form-control" id="input-title" placeholder="Title" name="title"';
-        if (this.model && this.model.get('title'))
-            html += ' value="' + this.model.get('title') + '"';
-        html += '></div></div></form>';
+        html += '>';
+        html += '</form><div class="done-favor">Done</div></div>';
 
-        html += '<div><span class="red-star">*</span><span>Require field</span><div class="done-favor">Done</div></div>'
+        html += '<div class="suggestions-url"><b>Suggestions<b></div>'
         this.editSurface.setContent(title + html);
-        this.editLightBox.show(this.editSurface);
-
+        this.editLightBox.show(this.Layout);
     }
 
-    editView.prototype.fillFavor = function (model){
-        this.newFavor = _.extend(this.newFavor, model.attributes);
-        if (this.newFavor) {
-            if (!$('[name=url]').val()) $('[name=url]').val(this.newFavor.url);
-            if (!$('[name=title]').val() && this.newFavor.title) $('[name=title]').val(this.newFavor.title);
-        }
+    editView.prototype.loadSuggestions = function(){
+        var sequence = this.collection.map(function(item){
+            var surface = new EditItemView({model:item});
+            surface.pipe(this.eventOutput);
+            return surface;
+        }.bind(this));
+        this.gridLayout.sequenceFrom(sequence);
     };
 
     editView.prototype.getFavor = function(){
         var url = document.getElementById('input-url').value;
-        var title = document.getElementById('input-title').value;
-        if (!title) title = url;
         var newContact = {};
         newContact.url = url;
-        newContact.title = title;
+        newContact.title = url;
         return newContact;
+    };
+
+    editView.prototype.createDefaultList = function(){
+        var defaultList = ['google.com', 'facebook.com', 'loveq.cn', 'weibo.com', 'baidu.com'];
+        defaultList.map(function(url){
+            var Suggestions = {};
+            Suggestions.url = url;
+            this.collection.create(Suggestions);
+            this.collection.trigger('sync');
+        }.bind(this));
     };
 
     module.exports = editView;

@@ -23,7 +23,8 @@ define(function(require, exports, module) {
         this.header = new Surface({
             size:[undefined,this.constant.headerHeight],
             properties:{
-                background: "rgba(0,0,0,0.9)"
+                background: "rgba(0,0,0,0.9)",
+                zIndex:10
             }
         });
 
@@ -147,7 +148,7 @@ define(function(require, exports, module) {
     };
 
     MainView.prototype.headerContent = function(){
-        var content = '<img src="pics/Logo.svg" class="colabeo-logo"/> ';
+        var content = '<img src="pics/Logo_only.png" class="colabeo-logo"/> ';
         content += '<form action="http://google.com/cse" class="google-area" id="google-form">';
         content += '<div class="google-search-bar">';
         content += '<i class="fa fa-search fa-2x" id="google-search-icon">  </i>';
