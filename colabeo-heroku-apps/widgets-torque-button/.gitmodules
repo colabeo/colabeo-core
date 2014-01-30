@@ -1,0 +1,57 @@
+[submodule "js/famous-ui"]
+	path = js/famous-ui
+	url = git@github.com:Famous/ui.git
+[submodule "js/famous-physics"]
+	path = js/famous-physics
+	url = git@github.com:Famous/famous-physics.git
+[submodule "js/famous"]
+	path = js/famous
+	url = git@github.com:Famous/famous.git
+[submodule "js/famous-animation"]
+	path = js/famous-animation
+	url = git@github.com:Famous/animation.git
+[submodule "js/famous-generative"]
+	path = js/famous-generative
+	url = git@github.com:Famous/generative.git
+[submodule "tools"]
+	path = tools
+	url = git@github.com:Famous/build-tools.git
+[submodule "js/famous-utils"]
+	path = js/famous-utils
+	url = git@github.com:Famous/utils.git
+[submodule "js/famous-css"]
+	path = js/famous-css
+	url = git@github.com:Famous/css.git
+[submodule "js/famous-math"]
+	path = js/famous-math
+	url = git@github.com:Famous/math.git
+[submodule "js/famous-color"]
+	path = js/famous-color
+	url = git@github.com:Famous/color.git
+[submodule "js/famous-sync"]
+	path = js/famous-sync
+	url = git@github.com:Famous/famous-sync.git
+[submodule "pkgtool"]
+	path = pkgtool
+	url = git@github.com:Famous/pkgtool.git
+[submodule "js/famous-scene"]
+	path = js/famous-scene
+	url = git@github.com:Famous/scene.git
+[submodule "js/core"]
+	path = js/core
+	url = git@github.com:Famous/november-base-core.git
+[submodule "js/famous-views"]
+	path = js/famous-views
+	url = git@github.com:Famous/famous-views.git
+[submodule "js/famous-modifiers"]
+	path = js/famous-modifiers
+	url = git@github.com:Famous/famous-modifiers.git
+[submodule "js/famous-feedback"]
+	path = js/famous-feedback
+	url = git@github.com:Famous/famous-feedback.git
+[submodule "js/famous-widgets"]
+	path = js/famous-widgets
+	url = git@github.com:Famous/famous-widgets.git
+[submodule "js/famous-audio"]
+	path = js/famous-audio
+	url = git@github.com:Famous/audio.git
