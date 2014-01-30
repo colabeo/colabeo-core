@@ -24,7 +24,7 @@ define(function(require, exports, module) {
             size:[undefined,this.constant.headerHeight],
             properties:{
                 textAlign: "center",
-                background: "rgba(0,0,0,0.9)",
+                background: "rgba(0,0,0,0.7)",
                 zIndex:10
             }
         });
@@ -35,7 +35,7 @@ define(function(require, exports, module) {
             properties:{
                 color: "white",
                 fontSize:30,
-                background:"rgba(0,0,0,0.9)",
+                background:"rgba(0,0,0,0.7)",
                 zIndex:10
             }
         });
@@ -149,7 +149,7 @@ define(function(require, exports, module) {
     };
 
     MainView.prototype.headerContent = function(){
-        var content = '<div class="colabeo-logo"><img src="pics/Logo_only.png" class="logo"/>Colabeo</div> ';
+        var content = '<div class="colabeo-logo"><img src="pics/Logo_only.png" class="logo"/><div class="overlay-text">Colabeo</div></div> ';
         content += '<form action="http://google.com/cse" class="google-area" id="google-form">';
         content += '<div class="google-search-bar">';
         content += '<i class="fa fa-search fa-2x" id="google-search-icon">  </i>';

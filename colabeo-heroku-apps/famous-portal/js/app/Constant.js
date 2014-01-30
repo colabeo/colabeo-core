@@ -3,12 +3,13 @@ define(function(require, exports, module) {
     function constant(opts){
 
         this.colabeoLogoWidth = 200;
-        this.headerHeight = 190;
+        this.headerHeight = 150;
         this.footerHeight = 50;
         this.favorItemWidth = 200;
         this.favorItemHeight = 150;
         this.favorPaddingTop = 20;
         this.favorPaddingLeft = 0;
+        this.favorPadding = 10;
         this.gridLayoutCol = 0;
         this.gridLayoutRow = 0;
     }
