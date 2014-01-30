@@ -63,10 +63,7 @@ define(function(require, exports, module) {
     }
 
     LogoView.prototype.events = function  () {
-
-        FamousEngine.on('resize', Utils.debounce( this.setTorquePos.bind(this), 150));
         this.torque.on('forceApplied', CounterView.add.bind( CounterView, 1));
-
     }
 
     LogoView.prototype.setTorquePos = function  () {
