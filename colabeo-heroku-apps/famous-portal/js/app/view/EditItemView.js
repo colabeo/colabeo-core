@@ -40,6 +40,11 @@ define(function(require, exports, module) {
             var target = $(e.target);
             if (target.hasClass("fa-minus-circle")) {
                 this.model.destroy();
+            } else if (target.hasClass("img-rounded")) {
+                console.log(this.model);
+                var favor = this.getFavor();
+                this.eventOutput.emit('summitFavor', favor);
+                this.eventOutput.emit('goBack');
             }
 //            else if (target.hasClass("fa-pencil")) this.eventOutput.emit('editFavor', this.model);
         }.bind(this));
@@ -54,9 +59,8 @@ define(function(require, exports, module) {
         var url = this.model.get('url');
         var pic = this.model.get('pic');
         var title = this.model.get('title');
-        var picture = '<a href="http://';
-        picture += url +'"><img src="' + pic + '" class="img-rounded"';
-        picture += 'style="width:' + this.c.favorItemWidth + 'px; height:' + this.c.favorItemHeight + 'px" ></a>';
+        var picture = '<div><img src="' + pic + '" class="img-rounded"';
+        picture += 'style="width:' + this.c.favorItemWidth + 'px; height:' + this.c.favorItemHeight + 'px" ></div>';
         var buttons = '<div class="show-item" >';
         buttons += '<span class="favor-destroy" ><i class="fa fa-minus-circle fa-lg ';
         if (!showButtons) buttons += 'toHide';
@@ -72,6 +76,13 @@ define(function(require, exports, module) {
 
         this.surface.setContent(html);
     }
+
+    EditItemView.prototype.getFavor = function(){
+        var newContact = {};
+        newContact.url = this.model.get('url');
+        newContact.title = this.model.get('title');
+        return newContact;
+    };
 
     module.exports = EditItemView;
 });
