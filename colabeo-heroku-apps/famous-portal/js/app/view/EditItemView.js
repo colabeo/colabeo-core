@@ -62,9 +62,9 @@ define(function(require, exports, module) {
         var picture = '<div><img src="' + pic + '" class="img-rounded"';
         picture += 'style="width:' + this.c.favorItemWidth + 'px; height:' + this.c.favorItemHeight + 'px" ></div>';
         var buttons = '<div class="show-item" >';
-        buttons += '<span class="favor-destroy" ><i class="fa fa-times-circle fa-lg ';
-        if (!showButtons) buttons += 'toHide';
-        buttons += '"></i></span>';
+//        buttons += '<span class="favor-destroy" ><i class="fa fa-times-circle fa-lg ';
+//        if (!showButtons) buttons += 'toHide';
+//        buttons += '"></i></span>';   // We dont need delete buttons for suggestions website
         if (!title) title=url;
         buttons += '<span class="favor-content">' + title + '</span>';
 //        buttons += '<span class="favor-edit" ><i class="fa fa-pencil fa-lg ';

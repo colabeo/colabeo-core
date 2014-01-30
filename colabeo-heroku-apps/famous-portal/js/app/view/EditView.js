@@ -108,7 +108,7 @@ define(function(require, exports, module) {
                     break;
             }
         }.bind(this));
-        this.collection.fetch();
+
         if (this.collection.length == 0) {
             this.createDefaultList();
         }
@@ -151,7 +151,7 @@ define(function(require, exports, module) {
     };
 
     editView.prototype.createDefaultList = function(){
-        var defaultList = ['google.com', 'facebook.com', 'loveq.cn', 'weibo.com', 'baidu.com'];
+        var defaultList = ['google.com', 'ebay.com', 'yelp.com', 'slideshare.net', 'airbnb.com', 'yahoo.com', 'craigslist.org', 'trello.com'];
         defaultList.map(function(url){
             var Suggestions = {};
             Suggestions.url = url;
