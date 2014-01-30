@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
     // Import core Famous dependencies
     var constant = require('app/Constant');
-    var Surface      = require('famous/Surface');
+    var Surface      = require('app/custom/Surface');
     var Easing = require('famous-animation/Easing');
     var EditItemView = require('app/view/EditItemView');
     var Suggestions = require('app/models/Suggestions');
@@ -21,7 +21,7 @@ define(function(require, exports, module) {
 
         this.gridLayout = new GridLayout({
             dimensions: [this.constant.gridLayoutCol, this.constant.gridLayoutRow],
-            cellSize: [this.constant.favorItemWidth, this.constant.favorItemHeight],
+            cellSize: [this.constant.favorItemWidth + 5, this.constant.favorItemHeight + this.constant.favorPaddingTop*2],
             transition: true
         });
 
@@ -80,14 +80,21 @@ define(function(require, exports, module) {
             console.log(e);
             var target = $(e.target);
             if (target.hasClass('back-button')) {
-
                 this.eventOutput.emit('goBack');
             }
-            else if (target.hasClass('done-favor')) {
+            else if (target.hasClass('done-favor') && document.getElementById('input-url').value) {
                 var favor = this.getFavor()
                 this.eventOutput.emit('summitFavor', favor);
                 this.eventOutput.emit('goBack');
 
+            }
+        }.bind(this));
+
+        this.editSurface.on('keyup',function(e){
+            if (document.getElementById('input-url').value && e.keyCode == 13) {
+                var favor = this.getFavor()
+                this.eventOutput.emit('summitFavor', favor);
+                this.eventOutput.emit('goBack');
             }
         }.bind(this));
 

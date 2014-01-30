@@ -99,7 +99,7 @@ img.img-rounded:hover{
     text-align: center;
 }
 
-.favor-item .fa-minus-circle{
+.favor-item .fa-times-circle{
     color: #d32f27;
     float:left;
     cursor: pointer;

@@ -38,7 +38,7 @@ define(function(require, exports, module) {
         }.bind(this))
         this.surface.on('click', function(e) {
             var target = $(e.target);
-            if (target.hasClass("fa-minus-circle")) {
+            if (target.hasClass("fa-times-circle")) {
                 this.model.destroy();
             } else if (target.hasClass("img-rounded")) {
                 console.log(this.model);
@@ -62,7 +62,7 @@ define(function(require, exports, module) {
         var picture = '<div><img src="' + pic + '" class="img-rounded"';
         picture += 'style="width:' + this.c.favorItemWidth + 'px; height:' + this.c.favorItemHeight + 'px" ></div>';
         var buttons = '<div class="show-item" >';
-        buttons += '<span class="favor-destroy" ><i class="fa fa-minus-circle fa-lg ';
+        buttons += '<span class="favor-destroy" ><i class="fa fa-times-circle fa-lg ';
         if (!showButtons) buttons += 'toHide';
         buttons += '"></i></span>';
         if (!title) title=url;

@@ -32,7 +32,7 @@ define(function(require, exports, module) {
         };
 
         this.gridView = new View({
-            size:[undefined,undefined]
+            size:[undefined,800]
         });
 
         this.gridLayout = new GridLayout({
