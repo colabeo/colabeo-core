@@ -37,7 +37,7 @@ define(function(require, exports, module) {
         var installationView = new InstallationView();
         var mainView = new MainView(appConfig);
         var mainDisplay = Engine.createContext();
-
+        mainDisplay.setPerspective( 5000 );
 
         $(document).ready(function($) {
             $('body').on('click','.install-link',function(){

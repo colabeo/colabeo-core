@@ -4,7 +4,7 @@ define(function(require, exports, module) {
     var constant = require ('app/Constant');
     var Surface      = require('famous/Surface');
     var View             = require('famous/View');
-
+    var LogoView = require('app/view/LogoView');
 
     function InstallationView(options) {
         View.apply(this, arguments);
@@ -15,8 +15,10 @@ define(function(require, exports, module) {
             content: '<a class="btn btn-cta btn-lg install-link" link="https://chrome.google.com/webstore/detail/eccfcbafhnpojpjhdhlkoikpnbofhljf"><p>+ ADD TO CHROME</p></a>'
         });
 
-        this._link(this.buttonSurface);
-//        this.setContent();
+        this.logoView = new LogoView();
+        this._add(this.logoView);
+        this._add(this.buttonSurface);
+
     };
 
     InstallationView.prototype = Object.create(View.prototype);
