@@ -37,7 +37,7 @@ define(function(require, exports, module) {
 
         this.gridLayout = new GridLayout({
             dimensions:[this.c.gridLayoutCol,this.c.gridLayoutRow],
-            cellSize: [this.c.favorItemWidth + this.c.favorPaddingLeft, this.c.favorItemHeight + this.c.favorPaddingTop],
+            cellSize: [this.c.favorItemWidth + 5, this.c.favorItemHeight + this.c.favorPaddingTop*2],
             transition: true
         });
 
@@ -50,11 +50,11 @@ define(function(require, exports, module) {
             size: [this.c.favorItemWidth, this.c.favorItemHeight],
             classes: ['add-surface'],
             properties:{
-                marginTop: this.c.favorPaddingTop+ "px",
-                marginLeft: this.c.favorPaddingLeft+ "px",
+                paddingTop: this.c.favorPaddingTop+ "px",
+                paddingLeft: this.c.favorPaddingLeft+ "px",
                 textAlign: "center"
             },
-            content: '<i class="fa fa-plus fa-5x"/>'
+            content: '<div><i class="fa fa-plus fa-5x"/></div>'
         });
         this.addFavorSurface.pipe(this.eventOutput);
 

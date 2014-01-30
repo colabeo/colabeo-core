@@ -17,11 +17,11 @@ define(function(require, exports, module) {
         EventHandler.setOutputHandler(this, this.eventOutput);
 
         this.surface = new Surface({
-            size: [this.c.favorItemWidth, this.c.favorItemHeight],
+            size: [this.c.favorItemWidth, this.c.favorItemHeight+this.c.favorPaddingTop*2],
             classes:['favor-item'],
             properties:{
-                marginTop: this.c.favorPaddingTop+ "px",
-                marginLeft: this.c.favorPaddingLeft+ "px"
+                paddingTop: this.c.favorPaddingTop+ "px",
+                paddingLeft: this.c.favorPaddingLeft+ "px"
             }
         });
         this.renderView()

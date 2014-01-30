@@ -21,6 +21,7 @@ define(function(require, exports, module) {
 
         this.gridLayout = new GridLayout({
             dimensions: [this.constant.gridLayoutCol, this.constant.gridLayoutRow],
+            cellSize: [this.constant.favorItemWidth, this.constant.favorItemHeight],
             transition: true
         });
 
@@ -43,10 +44,11 @@ define(function(require, exports, module) {
         });
         this.editSurface = new Surface({
             classes:['edit-favor-surface'],
-            size: [0.8*window.innerWidth, this.constant.headerHeight],
+            size: [undefined, this.constant.headerHeight],
             properties:{
+                width: "80%",
                 borderRadius: "10px",
-                marginLeft: "10%",
+//                marginLeft: "10%",
                 color: 'rgba(245, 236, 236,1)',
                 textAlign: "center",
                 zIndex:1001
@@ -112,12 +114,12 @@ define(function(require, exports, module) {
         this.newContact = {};
         this.model=model;
         var title = '<div class="title"><i class="fa fa-arrow-circle-o-down fa-lg"></i>  Add to speed Dial<i class="fa fa-times-circle-o back-button"></i></div>';
-        var html = '<div><form role="form">';
+        var html = '<div>';
         html += '<input type="text" class="form-control" id="input-url" placeholder="Type URL to add your favorite website" name="url"';
         if (this.model)
             html += ' value="' + this.model.get('url') + '"';
         html += '>';
-        html += '</form><div class="done-favor">Done</div></div>';
+        html += '<div class="done-favor">Done</div></div>';
 
         html += '<div class="suggestions-url"><b>Suggestions<b></div>'
         this.editSurface.setContent(title + html);

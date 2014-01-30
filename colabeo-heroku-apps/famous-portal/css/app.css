@@ -19,10 +19,16 @@ body{
     /*width: 100%;*/
 }
 
-.colabeo-logo{
-    width: 140px;
+.colabeo-logo {
     float: left;
-    margin: 22px;
+    margin-left:20px;
+    margin-top:15px;
+    color: #68b3f6;
+}
+
+.colabeo-logo .logo{
+    width: 40px;
+    /*margin: 22px;*/
 }
 
 .google-form{
@@ -35,17 +41,14 @@ body{
 
 .google-search-bar {
     border: none;
-    margin-top: 67px;
+    margin-top: 65px;
     height: 50px;
-    width: 120%;
 }
 
 #google-search-icon{
-    margin: auto;
     color: #8b8b8b;
-    padding: 8px;
-    padding-left: 11px;
-    float: left;
+    padding: 6px;
+    padding-bottom: 14px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     background-color: rgba(185, 185, 185, 0.2);
@@ -53,12 +56,10 @@ body{
 
 input#google-input-search-bar{
     border: none;
-    margin: auto;
     color: #fff;
     font-size: 20px;
-    height: 46px;
-    float: left;
-    width: 50%;
+    height: 50px;
+    width: 80%;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     background-color: rgba(185, 185, 185,0.2);
@@ -76,22 +77,20 @@ input#google-input-search-bar{
 
 /*Favor View*/
 div.favor-item{
-    box-shadow: 0 0 0 10px transparent;
     background: rgba(255,255,255,0);
+}
+
+img.img-rounded{
+    border-radius: 5px;
+    box-shadow: 0 0 0 10px transparent;
     -webkit-transition: box-shadow .6s ease-in-out;
     -moz-transition: box-shadow .6s ease-in-out;
 }
 
-div.favor-item:hover{
+img.img-rounded:hover{
     box-shadow: 0 0 0 2px rgba(21, 49, 63, 0.80);
     -webkit-transition: box-shadow .4s ease-in-out;
     -moz-transition: box-shadow .4s ease-in-out;
-}
-
-img.img-rounded{
-    /*height:150px;*/
-    /*width: 200px;*/
-    border-radius: 5px;
 }
 
 .favor-item .show-item{
@@ -116,7 +115,7 @@ img.img-rounded{
     cursor: pointer;
 }
 
-.add-surface{
+.add-surface>div{
     border: solid 1px #68b3f6;
     border-radius: 5px;
     box-shadow: 0 0 0 10px transparent;
@@ -125,7 +124,7 @@ img.img-rounded{
     -moz-transition: box-shadow .6s ease-in-out;
 }
 
-.add-surface:hover{
+.add-surface>div:hover{
     box-shadow: 0 0 0 2px rgba(53, 122, 156, 0.80);
     -webkit-transition: box-shadow .4s ease-in-out;
     -moz-transition: box-shadow .4s ease-in-out;
@@ -151,23 +150,20 @@ img.img-rounded{
 
 .edit-favor-surface .fa-times-circle-o{
     float:right;
-    color: rgba(211, 47, 39, 0.90);
+    color: rgba(2, 161, 221, 0.90);
     cursor: pointer;
     font-size: 24px;
     cursor: pointer;
 }
-
 
 .edit-favor-surface #input-url{
     border: none;
     border-radius: 5px;
     font-size: 20px;
     height: 35px;
-    width: 70%;
+    width: 80%;
     color: rgba(30, 112, 143, 0.90);
 }
-
-
 
 .edit-favor-surface .done-favor{
     float: right;
@@ -179,12 +175,28 @@ img.img-rounded{
     padding-top: 8px;
     cursor: pointer;
     font-size: 20px;
-    margin-top: -39px;
-    margin-right: -45px;
+    margin-right: 10%;
 }
 
 .edit-favor-surface .suggestions-url{
     float:left;
     position: absolute;
     bottom: 10px;
+    left: 20px;
+}
+
+
+.install-link p {
+    color: rgba(254, 254, 254, 0.90);
+    background: rgba(2, 161, 221, 0.90);
+    width: 220px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 40px;
+    position: relative;
+    top: 50px;
+    margin: auto;
+    text-align: center;
 }

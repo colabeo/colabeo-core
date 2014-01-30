@@ -9,6 +9,7 @@ define(function(require, exports, module) {
     var appConstant = require('app/Constant');
     var appConfig = require('app/config');
 
+    var InstallationView = require('app/view/InstallationView');
     var MainView = require('app/view/MainView');
     var FavorView = require('app/view/FavorView');
     var EditView = require('app/view/EditView');
@@ -33,9 +34,30 @@ define(function(require, exports, module) {
         favorSection.pipe(this.eventOutput);
         appConfig.sections = [favorSection];
 
+        var installationView = new InstallationView();
         var mainView = new MainView(appConfig);
         var mainDisplay = Engine.createContext();
-        mainDisplay.add(mainView);
+
+
+        $(document).ready(function($) {
+            $('body').on('click','.install-link',function(){
+                var url = $(this).attr('link');
+                if (window.location.host.indexOf('colabeo.com')>=0 && window.chrome && window.chrome.webstore) chrome.webstore.install(url);
+                else {
+                    window.open(url, '_blank');
+                }
+            });
+            setTimeout(function(){
+                if (window.colabeoBody) {
+                    mainDisplay.add(mainView);
+
+                }
+                else {
+                    mainDisplay.add(installationView);
+                }
+            },1000);
+        });
+
 
         mainView.select(mainView.options.sections[0].title);
 

@@ -77,6 +77,7 @@ define(function(require, exports, module) {
                 var currY = Math.round(rowSize * i);
                 for(var j = 0; j < cols; j++) {
                     var currX = Math.round(colSize * j);
+                    currX += (colSize - this.options.cellSize[0])/2;
                     var currIndex = i * cols + j;
                     if(!(currIndex in this._modifiers)) this._modifiers[currIndex] = new Modifier({opacity: 0});
                     var currModifier = this._modifiers[currIndex];
