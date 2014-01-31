@@ -21,7 +21,7 @@ define(function(require, exports, module) {
 
         this.gridLayout = new GridLayout({
             dimensions: [this.constant.gridLayoutCol, this.constant.gridLayoutRow],
-            cellSize: [this.constant.favorItemWidth + 5, this.constant.favorItemHeight + this.constant.favorPaddingTop*2],
+            cellSize: [this.constant.favorItemWidth + this.constant.favorPaddingLeft + this.constant.favorPaddingRight, this.constant.favorItemHeight + this.constant.favorPaddingTop*2],
             transition: true
         });
 

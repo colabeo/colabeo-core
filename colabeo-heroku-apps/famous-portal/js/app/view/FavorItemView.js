@@ -17,7 +17,7 @@ define(function(require, exports, module) {
         EventHandler.setOutputHandler(this, this.eventOutput);
 
         this.surface = new Surface({
-            size: [this.c.favorItemWidth, this.c.favorItemHeight+this.c.favorPaddingTop*2],
+            size: [this.c.favorItemWidth + this.c.favorPaddingLeft + this.c.favorPaddingRight, this.c.favorItemHeight+this.c.favorPaddingTop*2],
             classes:['favor-item'],
             properties:{
                 paddingTop: this.c.favorPaddingTop+ "px",
