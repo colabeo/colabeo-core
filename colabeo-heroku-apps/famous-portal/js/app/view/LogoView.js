@@ -12,7 +12,6 @@ define(function(require, exports, module) {
     var TorqueRenderable    = require('app/widgets/TorqueRenderable');
     var Scene               = require('famous-scene/Scene');
     var SplitImages         = require('app/widgets/SplitImages');
-    var CounterView         = require('app/scenes/CounterView');
     var Utils               = require('famous-utils/Utils');
 
     function LogoView() {
@@ -63,7 +62,7 @@ define(function(require, exports, module) {
     }
 
     LogoView.prototype.events = function  () {
-        this.torque.on('forceApplied', CounterView.add.bind( CounterView, 1));
+
     }
 
     LogoView.prototype.setTorquePos = function  () {
