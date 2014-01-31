@@ -84,9 +84,7 @@ define(function(require, exports, module) {
             }
         }.bind(this));
         this.collection.fetch();
-        if (this.collection.length == 0) {
-            this.createDefaultList();
-        }
+
     }
 
     FavorView.prototype = Object.create(View.prototype);
