@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
     // Import core Famous dependencies
-
+    var FamousEngine = require('famous/Engine');
+    var FM = require('famous/Matrix');
     var Surface      = require('famous/Surface');
     var View             = require('famous/View');
     var LogoView = require('app/view/LogoView');
@@ -15,13 +16,12 @@ define(function(require, exports, module) {
 
         this.logoView = new LogoView();
 
-//        this.surface = new Surface({
-//            content: this.logoView,
-//            size:[undefined,undefined]
-//        });
-//        this._add(this.surface);
+        this._add(this.logoView);
         this._add(this.buttonSurface);
 
+        FamousEngine.on('resize', function(){
+            this.logoView.setTorquePos.bind(this.logoView);
+        }.bind(this));
     }
 
     InstallationView.prototype = Object.create(View.prototype);

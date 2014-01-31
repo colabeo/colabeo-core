@@ -31,7 +31,7 @@ define(function(require, exports, module) {
 
         this.footerSurface = new Surface({
             size:[undefined,this.constant.footerHeight],
-            content:'<div class="copy-right">&copy 2014 Colabeo.Inc</div><div class="leave-a-message">Leave a Message</div>',
+            content:'<div class="copy-right">&copy 2014 Colabeo.Inc</div>',
             properties:{
                 color: "white",
                 fontSize:30,
