@@ -1,0 +1,219 @@
+/*Main View*/
+body{
+    /*background: url(../colabeoBackground.jpg);*/
+    /*background-size:100%, 100%;*/
+    /*background-repeat:no-repeat;*/
+    background-color: black;
+    overflow-x:hidden;
+}
+
+.colabeo-background{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 100%;
+    max-width: none;
+    opacity:0.6;
+    background-color: black;
+    min-width: 100%;
+    /*width: 100%;*/
+}
+
+.colabeo-logo {
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: white;
+    font-size: 50px;
+    line-height: 40px;
+}
+
+.colabeo-logo .logo{
+    width: 23px;
+    padding: 3px;
+    float: left;
+    opacity: 0.7;
+}
+
+.colabeo-logo .overlay-text {
+    color: #fff;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 8px 3px;
+    text-shadow: 0 0 10px #3cf;
+    -webkit-text-stroke: .2px #3cf;
+    text-align: left;
+    float: left;
+}
+
+.google-form{
+    float: left;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-bottom: solid 1px rgb(124, 124, 124);
+    height: 110px;
+}
+
+.google-search-bar {
+    border: none;
+    margin-top: 65px;
+    height: 50px;
+}
+
+#google-search-icon{
+    color: #8b8b8b;
+    padding: 6px;
+    padding-bottom: 14px;
+}
+
+input#google-input-search-bar{
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    height: 50px;
+    width: 60%;
+    border-radius: 5px;
+    background-color: rgba(185, 185, 185,0.2);
+    padding: 0px 10px;
+}
+
+.surface .copy-right{
+    float: left;
+    color: rgba(255,255,255,0.6);
+    font-size: 10px;
+    line-height: 20px;
+    padding: 20px 20px;
+    pointer-events: none;
+}
+
+.surface .leave-a-message{
+    padding: 16px;
+    float: right;
+}
+
+/*Favor View*/
+div.favor-item{
+    background: rgba(255,255,255,0);
+}
+
+img.img-rounded{
+    border-radius: 5px;
+    box-shadow: 0 0 0 3px transparent;
+    -webkit-transition: box-shadow .6s ease-in-out;
+    -moz-transition: box-shadow .6s ease-in-out;
+}
+
+img.img-rounded:hover{
+    box-shadow: 0 0 0 2px #68b3f6;
+    -webkit-transition: box-shadow .4s ease-in-out;
+    -moz-transition: box-shadow .4s ease-in-out;
+}
+
+.favor-item .show-item{
+    text-align: center;
+}
+
+.favor-item .fa-times-circle{
+    color: lightgrey;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    margin-top: 2px;
+}
+
+.favor-item .favor-content {
+    color: #fefefe;
+}
+
+.favor-item .fa-pencil{
+    color: #68b3f6;
+    float: right;
+    cursor: pointer;
+}
+
+.add-surface>div{
+    border: solid 1px #68b3f6;
+    border-radius: 5px;
+    box-shadow: 0 0 0 3px transparent;
+    background: rgba(255,255,255,0.1);
+    -webkit-transition: box-shadow .6s ease-in-out;
+    -moz-transition: box-shadow .6s ease-in-out;
+}
+
+.add-surface>div:hover{
+    box-shadow: 0 0 0 2px #68b3f6;
+    -webkit-transition: box-shadow .4s ease-in-out;
+    -moz-transition: box-shadow .4s ease-in-out;
+}
+
+.add-surface .fa-plus{
+    margin:35px;
+    color: #68b3f6;
+}
+
+.toHide{
+    display: none;
+}
+
+/*Edit View*/
+.edit-favor-surface .title{
+    height: 30px;
+    padding: 25px;
+    font-size: 25px;
+    text-align: center;
+    color: rgba(254, 254, 254, 0.90);
+}
+
+.edit-favor-surface .fa-times-circle-o{
+    float:right;
+    color: rgba(2, 161, 221, 0.90);
+    cursor: pointer;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.edit-favor-surface #input-url{
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    height: 35px;
+    width: 60%;
+    color: rgba(30, 112, 143, 0.90);
+    padding: 0px 10px;
+}
+
+.edit-favor-surface .done-favor{
+    float: right;
+    color: rgba(254, 254, 254, 0.90);
+    background: rgba(2, 161, 221, 0.90);
+    width: 120px;
+    height: 34px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10%;
+    display: inline-block;
+    line-height: 34px;
+}
+
+.edit-favor-surface .suggestions-url{
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+}
+
+
+.install-link p {
+    color: rgba(254, 254, 254, 0.90);
+    background: rgba(2, 161, 221, 0.90);
+    width: 220px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 40px;
+    position: relative;
+    top: 50px;
+    left: 300px;
+    text-align: center;
+}
