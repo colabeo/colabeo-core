@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
     // Import core Famous dependencies
     var C = require('app/Constant');
+    var Engine = require('famous/Engine');
     var EditView = require('app/view/EditView');
     var EventHandler = require('famous/EventHandler');
     var FavorItemView  = require('app/view/FavorItemView');
@@ -32,7 +33,7 @@ define(function(require, exports, module) {
         };
 
         this.gridView = new View({
-            size:[undefined,800]
+            size:[undefined,undefined]
         });
 
         this.gridLayout = new GridLayout({
@@ -59,9 +60,13 @@ define(function(require, exports, module) {
         this.addFavorSurface.pipe(this.eventOutput);
 
 //        this.loadFavor();
-        this.gridView._link(this.gridLayout);
+//        this.emptySurface = new Surface({
+//            size: [undefined,window.innerHeight*2]
+//        })
+//        this.gridView._add(this.emptySurface);
+        this.gridView._add(this.gridLayout);
         this.scrollview.sequenceFrom([this.gridView]);
-        this.pipe(this.scrollview);
+        Engine.pipe(this.scrollview);
         this._link(this.scrollview);
 
         this.addFavorSurface.on('click', function(e){

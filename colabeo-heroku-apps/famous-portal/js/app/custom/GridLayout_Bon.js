@@ -72,6 +72,9 @@ define(function(require, exports, module) {
                 size[1] = rows * this.options.cellSize[1];
             }
             if(!rows) rows = Math.floor(size[1] / this.options.cellSize[1]);
+
+//            size[0]=size[0]-cols*(this.constant.favorPaddingLeft+this.constant.favorPaddingRight);
+
             var rowSize = size[1] / rows;
             var colSize = size[0] / cols;
             for(var i = 0; i < rows; i++) {
