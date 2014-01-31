@@ -30,9 +30,9 @@ define(function(require, exports, module) {
         this.favorCollection = new FavorCollection();
         this.suggestionsCollection = new SuggestionsCollection();
 
-        var favorSection = new FavorView({collection:this.favorCollection});
-        favorSection.pipe(this.eventOutput);
-        appConfig.sections = [favorSection];
+        this.favorSection = new FavorView({collection:this.favorCollection});
+        this.favorSection.pipe(this.eventOutput);
+        appConfig.sections = [this.favorSection];
 
         var installationView = new InstallationView();
         var mainView = new MainView(appConfig);
@@ -74,7 +74,7 @@ define(function(require, exports, module) {
         // TODO: hack for dev
         colabeo = {};
         colabeo.mainView = mainView;
-        colabeo.favorSection = favorSection;
+        colabeo.favorSection = this.favorSection;
         colabeo.editSection = this.editView;
     }
 
@@ -90,6 +90,7 @@ define(function(require, exports, module) {
     MainController.prototype.onGoBack = function(e){
         this.editView.editLightBox.hide();
         this.editViewLightBox.hide();
+        Engine.pipe(this.favorSection.scrollview);
     };
 
     MainController.prototype.onSummitFavor = function(favor){

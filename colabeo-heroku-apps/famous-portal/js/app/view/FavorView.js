@@ -70,6 +70,7 @@ define(function(require, exports, module) {
         this._link(this.scrollview);
 
         this.addFavorSurface.on('click', function(e){
+            Engine.unpipe(this.scrollview);
             this.eventOutput.emit('editFavor');
         }.bind(this));
 
