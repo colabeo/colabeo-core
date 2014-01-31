@@ -8,8 +8,8 @@ define(function(require, exports, module) {
         this.favorItemWidth = 200;
         this.favorItemHeight = 150;
         this.favorPaddingTop = 20;
-        this.favorPaddingLeft = 0;
-        this.favorPadding = 10;
+        this.favorPaddingLeft = 10;
+        this.favorPaddingRight = 10;
         this.gridLayoutCol = 0;
         this.gridLayoutRow = 0;
     }

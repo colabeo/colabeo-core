@@ -17,11 +17,12 @@ define(function(require, exports, module) {
         EventHandler.setOutputHandler(this, this.eventOutput);
 
         this.surface = new Surface({
-            size: [this.c.favorItemWidth, this.c.favorItemHeight],
+            size: [this.c.favorItemWidth + this.c.favorPaddingLeft + this.c.favorPaddingRight, this.c.favorItemHeight],
             classes:['favor-item'],
             properties:{
                 marginTop: this.c.favorPaddingTop+ "px",
                 marginLeft: this.c.favorPaddingLeft+ "px",
+                marginRight: this.c.favorPaddingRight+ "px",
                 zIndex:1001
             }
         });

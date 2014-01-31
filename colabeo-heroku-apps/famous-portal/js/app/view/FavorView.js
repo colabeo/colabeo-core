@@ -32,23 +32,18 @@ define(function(require, exports, module) {
         };
 
         this.gridView = new View({
-            classes: ['gridView'],
-            size:[1000,800],
-            properties: {
-                background: 'red'
-            }
+            size:[undefined,800]
         });
 
         this.gridLayout = new GridLayout({
-            classes: ['gridLayout'],
             dimensions:[this.c.gridLayoutCol,this.c.gridLayoutRow],
-            cellSize: [this.c.favorItemWidth + this.c.favorPadding*2, this.c.favorItemHeight + this.c.favorPaddingTop*2],
+            cellSize: [this.c.favorItemWidth + this.c.favorPaddingLeft + this.c.favorPaddingRight, this.c.favorItemHeight + this.c.favorPaddingTop*2],
             transition: true
         });
 
         this.scrollview = new Scrollview({
             direction: Util.Direction.Y,
-//            margin:10000
+            margin:10000
         });
 
         this.addFavorSurface = new Surface({
