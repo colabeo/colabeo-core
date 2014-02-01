@@ -1,5 +1,4 @@
 define(function(require, exports, module) {
-    var C = require('app/Constant');
     var Entity = require('famous/Entity');
     var RenderNode = require('famous/RenderNode');
     var Matrix = require('famous/Matrix');
@@ -34,7 +33,6 @@ define(function(require, exports, module) {
         if(options) this.setOptions(options);
 
         this.id = Entity.register(this);
-        this.constant = new C();
         this._modifiers = [];
         this._contextSizeCache = [0, 0];
         this._dimensionsCache = [0, 0];
@@ -44,6 +42,7 @@ define(function(require, exports, module) {
     GridLayout.DEFAULT_OPTIONS = {
         dimensions: [1, undefined],
         cellSize: [250, 250],
+        paddingSide: 0,
         transition: false
     };
 
@@ -65,7 +64,7 @@ define(function(require, exports, module) {
         var rows = this.options.dimensions[1];
 
         if(size[0] !== this._contextSizeCache[0] || size[1] !== this._contextSizeCache[1] || cols !== this._dimensionsCache[0] || rows !== this._dimensionsCache[1]) {
-            size[0] = size[0]-this.constant.favorItemWidth
+            size[0] = size[0]-this.options.paddingSide * 2;
             if(!cols) cols = Math.floor(size[0] / this.options.cellSize[0]);
             if(this.sequence && !rows) {
                 rows = Math.floor(this.sequence.array.length/cols) + 1;
@@ -81,7 +80,7 @@ define(function(require, exports, module) {
                 var currY = Math.round(rowSize * i);
                 for(var j = 0; j < cols; j++) {
                     var currX = Math.round(colSize * j);
-                    currX += (colSize - this.options.cellSize[0] + this.constant.favorItemWidth)/2 ;
+                    currX += (colSize - this.options.cellSize[0])/2 + this.options.paddingSide;
                     var currIndex = i * cols + j;
                     if(!(currIndex in this._modifiers)) this._modifiers[currIndex] = new Modifier({opacity: 0});
                     var currModifier = this._modifiers[currIndex];

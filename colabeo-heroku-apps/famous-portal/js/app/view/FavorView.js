@@ -39,6 +39,7 @@ define(function(require, exports, module) {
         this.gridLayout = new GridLayout({
             dimensions:[this.c.gridLayoutCol,this.c.gridLayoutRow],
             cellSize: [this.c.favorItemWidth + this.c.favorPaddingLeft + this.c.favorPaddingRight, this.c.favorItemHeight + this.c.favorPaddingTop*2],
+            paddingSide: this.c.favorItemWidth/2,
             transition: true
         });
 
@@ -84,9 +85,6 @@ define(function(require, exports, module) {
             }
         }.bind(this));
         this.collection.fetch();
-        if (this.collection.length == 0) {
-            this.createDefaultList();
-        }
     }
 
     FavorView.prototype = Object.create(View.prototype);
