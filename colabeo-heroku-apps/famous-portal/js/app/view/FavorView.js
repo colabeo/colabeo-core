@@ -85,6 +85,7 @@ define(function(require, exports, module) {
             }
         }.bind(this));
         this.collection.fetch();
+
     }
 
     FavorView.prototype = Object.create(View.prototype);
