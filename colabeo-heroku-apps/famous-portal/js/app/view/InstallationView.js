@@ -15,13 +15,8 @@ define(function(require, exports, module) {
 
         this.logoView = new LogoView();
 
-        this.iframeSurface = new Surface({
-            content: '<iframe src="http://dashboard.colabeo.com/login" class="iframe-colabeo-dashboard"></iframe>'
-        });
-
         this._add(this.logoView);
         this._add(this.buttonSurface);
-        this._add(this.iframeSurface);
 
         FamousEngine.on('resize', function(){
             this.logoView.setTorquePos.bind(this.logoView);

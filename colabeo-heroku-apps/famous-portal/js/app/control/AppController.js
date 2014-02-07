@@ -49,7 +49,7 @@ define(function(require, exports, module) {
             });
 
 //            TODO: for now, we show installationView only
-            mainDisplay(installationView);
+            mainDisplay.add(installationView);
 //            setTimeout(function(){
 //                if (window.colabeoBody) {
 //                    mainDisplay.add(mainView);

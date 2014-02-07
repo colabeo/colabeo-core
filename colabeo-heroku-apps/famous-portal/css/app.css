@@ -47,11 +47,14 @@ body{
 }
 
 .iframe-colabeo-dashboard{
-    height: 100%;
+    background: #000;
+    height: 700px;
+    max-height: 100%;
     width: 400px;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 50px;
+    right: 100px;
+    border: none;
 }
 
 .google-form{
