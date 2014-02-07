@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
     var Suggestions = require('app/models/Suggestions');
-//    require("lib/backboneLocalStorage");
+    require("lib/backboneLocalStorage");
 
     module.exports = Backbone.Collection.extend({
         localStorage: new Backbone.LocalStorage("colabeo-suggestions-collection"),
