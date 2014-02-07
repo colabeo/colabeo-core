@@ -47,15 +47,18 @@ define(function(require, exports, module) {
                     window.open(url, '_blank');
                 }
             });
-            setTimeout(function(){
-                if (window.colabeoBody) {
-                    mainDisplay.add(mainView);
 
-                }
-                else {
-                    mainDisplay.add(installationView);
-                }
-            },1000);
+//            TODO: for now, we show installationView only
+            mainDisplay(installationView);
+//            setTimeout(function(){
+//                if (window.colabeoBody) {
+//                    mainDisplay.add(mainView);
+//
+//                }
+//                else {
+//                    mainDisplay.add(installationView);
+//                }
+//            },1000);
         });
 
 

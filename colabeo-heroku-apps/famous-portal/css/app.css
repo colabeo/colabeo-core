@@ -46,6 +46,14 @@ body{
     float: left;
 }
 
+.iframe-colabeo-dashboard{
+    height: 100%;
+    width: 400px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
 .google-form{
     float: left;
     position: relative;
