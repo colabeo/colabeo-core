@@ -55,6 +55,7 @@ body{
     top: 50px;
     right: 100px;
     border: none;
+    z-index: 9999;
 }
 
 .google-form{

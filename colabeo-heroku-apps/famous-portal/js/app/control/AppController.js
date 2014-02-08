@@ -4,6 +4,7 @@ define(function(require, exports, module) {
     var Surface = require('famous/Surface');
     var EventHandler = require('famous/EventHandler');
     var LightBox = require('app/custom/LightBox');
+    var Utils       = require('famous-utils/Utils');
 
     // app dependencies
     var appConstant = require('app/Constant');
@@ -20,6 +21,9 @@ define(function(require, exports, module) {
     var favorViewController = require('app/control/FavorViewController');
 
     function MainController() {
+        if (Utils.isMobile()) {
+            window.location = $('.iframe-colabeo-dashboard').attr('src');
+        }
         // Set up event handlers
         this.eventInput = new EventHandler();
         EventHandler.setInputHandler(this, this.eventInput);
