@@ -1,13 +1,10 @@
 define(function(require, exports, module) {
 
     //Include Famous Repositories
-    var FamousEngine = require('famous/Engine');
     var FM = require('famous/Matrix');
 
     //Include Physics: Engine, Forces, Utilties
     var PhysicsEngine = require('famous-physics/PhysicsEngine');
-
-    var mainCtx = FamousEngine.createContext();
 
     var TorqueRenderable    = require('app/widgets/TorqueRenderable');
     var Scene               = require('famous-scene/Scene');
@@ -21,9 +18,6 @@ define(function(require, exports, module) {
         Scene.apply(this, arguments);
 
         // Button
-        this.split;
-        this.torque;
-        this.lasers;
 
         this.node.add(this.lasers );
 
@@ -73,11 +67,11 @@ define(function(require, exports, module) {
             curve: 'outSineNorm',
             duration: 1000
         }
-    }
+    };
 
     LogoView.prototype.events = function  () {
         this.torque.on('forceApplied', this.audio.playSound.bind(this.audio, 0, 1 ));
-    }
+    };
 
 
     LogoView.prototype.setTorquePos = function  () {
@@ -86,24 +80,25 @@ define(function(require, exports, module) {
             window.innerHeight * 0.6 - this.options.torqueSize[1] * 0.5), {
             duration: 100
         });
-    }
+    };
 
     LogoView.prototype.initLasers= function  () {
 
         this.lasers = new FontFeedback({
             fontContent: [
-                'Jeff','Chapman','Lab','Bon','Shawn'
+                '<i class="fa fa-facebook-square fa-lg"></i>', '<i class="fa fa-google-plus-square fa-lg"></i>','<i class="fa fa-linkedin-square fa-lg"></i>','<i class="fa fa-github fa-lg"></i>','Jeff','Chapman','Lab','Bon','Shawn'
             ],
             fontProperties: {
                 //'background-color': 'rgba( 255, 255, 255, 0.7)',
                 //'background-color': '#a07cb7',
-                'textAlign': 'center',
-                'padding': '15px',
-                'borderRadius': '5px',
+//                'textAlign': 'center',
+//                'padding': '15px',
+//                'borderRadius': '5px',
                 //'color': '#d94626'
                 'color': '#51c8ee'
             },
-            size: [320, 320],
+            fontClasses:['colabeo-logo-feedback-font'],
+            size: [100, 50],
             curve: {
                 curve: Easing.outBackNorm,
                 duration: 2000
@@ -117,7 +112,7 @@ define(function(require, exports, module) {
 
         this.node.add(this.lasers );
 
-    }
+    };
 
     module.exports = LogoView;
 });
