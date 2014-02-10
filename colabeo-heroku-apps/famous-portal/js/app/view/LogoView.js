@@ -86,7 +86,16 @@ define(function(require, exports, module) {
 
         this.lasers = new FontFeedback({
             fontContent: [
-                'dd','<i class="fa fa-facebook-square fa-lg"></i>', '<i class="fa fa-google-plus-square fa-lg"></i>','<i class="fa fa-linkedin-square fa-lg"></i>','<i class="fa fa-github fa-lg"></i>','Jeff','Chapman','Lab','Bon','Shawn'
+                'Beepe',
+                '<i class="fa fa-envelope fa-lg"></i>',
+                'Beepe',
+                '<i class="fa fa-facebook-square fa-lg"></i>',
+                'Beepe',
+                '<i class="fa fa-google-plus-square fa-lg"></i>',
+                'Beepe',
+                '<i class="fa fa-linkedin-square fa-lg"></i>',
+                'Beepe',
+                '<i class="fa fa-github fa-lg"></i>'
             ],
             fontProperties: {
                 'color': '#51c8ee'
