@@ -105,9 +105,10 @@ body{
     width: 400px;
     position: absolute;
     top: 8%;
-    right: 100px;
+    right: 150px;
     border: none;
     z-index: 9999;
+    background: rgba(0,0,0,0.5);
 }
 
 .google-form{

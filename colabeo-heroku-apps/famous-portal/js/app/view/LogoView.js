@@ -22,7 +22,7 @@ define(function(require, exports, module) {
         this.node.add(this.lasers );
 
         this.audio = new SoundPlayer([
-            'sounds/punch_01.wav'
+            'sounds/sharp-beep-single.mp3'
         ]);
 
         this.split = new SplitImages({

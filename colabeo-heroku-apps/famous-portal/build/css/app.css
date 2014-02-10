@@ -69,14 +69,19 @@ body{
 }
 
 .colabeo-logo-feedback-font {
-    font-family:"Comic Strip W95 Exclaim";
-    font-size: 100px;
+    font-family: 'Oleo Script', cursive;
+    font-size: 60px;
+    color: #68b3f6;
     text-shadow:
         3px 3px 0 #000,
         -1px -1px 0 #000,
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
+}
+
+.fa-envelope{
+    color: #a7a7a7;
 }
 
 .fa-facebook-square{
@@ -100,9 +105,10 @@ body{
     width: 400px;
     position: absolute;
     top: 8%;
-    right: 100px;
+    right: 150px;
     border: none;
     z-index: 9999;
+    background: rgba(0,0,0,0.5);
 }
 
 .google-form{
