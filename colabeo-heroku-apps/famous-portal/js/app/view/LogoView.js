@@ -61,7 +61,7 @@ define(function(require, exports, module) {
     LogoView.prototype.constructor = LogoView;
 
     LogoView.DEFAULT_OPTIONS = {
-        torqueSize: [400, 400],
+        torqueSize: [340, 340],
         alarmDelay: 1000,
         alarmCurve: {
             curve: 'outSineNorm',
@@ -86,15 +86,9 @@ define(function(require, exports, module) {
 
         this.lasers = new FontFeedback({
             fontContent: [
-                '<i class="fa fa-facebook-square fa-lg"></i>', '<i class="fa fa-google-plus-square fa-lg"></i>','<i class="fa fa-linkedin-square fa-lg"></i>','<i class="fa fa-github fa-lg"></i>','Jeff','Chapman','Lab','Bon','Shawn'
+                'dd','<i class="fa fa-facebook-square fa-lg"></i>', '<i class="fa fa-google-plus-square fa-lg"></i>','<i class="fa fa-linkedin-square fa-lg"></i>','<i class="fa fa-github fa-lg"></i>','Jeff','Chapman','Lab','Bon','Shawn'
             ],
             fontProperties: {
-                //'background-color': 'rgba( 255, 255, 255, 0.7)',
-                //'background-color': '#a07cb7',
-//                'textAlign': 'center',
-//                'padding': '15px',
-//                'borderRadius': '5px',
-                //'color': '#d94626'
                 'color': '#51c8ee'
             },
             fontClasses:['colabeo-logo-feedback-font'],
