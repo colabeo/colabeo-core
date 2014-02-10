@@ -67,8 +67,8 @@ define(function(require, exports, module) {
 
     LogoView.prototype.setTorquePos = function  () {
         this.torque.setTransform( FM.translate(
-            200,
-            window.innerHeight * 0.5 - this.options.torqueSize[1] * 0.5), {
+            150,
+            window.innerHeight * 0.6 - this.options.torqueSize[1] * 0.5), {
             duration: 100
         });
     }
