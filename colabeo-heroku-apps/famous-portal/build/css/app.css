@@ -68,8 +68,34 @@ body{
     float: left;
 }
 
+.colabeo-logo-feedback-font {
+    font-family:"Comic Strip W95 Exclaim";
+    font-size: 100px;
+    text-shadow:
+        3px 3px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.fa-facebook-square{
+    color: #3398cd;
+}
+
+.fa-google-plus-square{
+    color: #bf4335;
+}
+
+.fa-linkedin{
+    color: #2367a2;
+}
+
+.fa-github{
+    color: #010000;
+}
+
 .iframe-colabeo-dashboard{
-    background: #000;
     height: 84%;
     width: 400px;
     position: absolute;
