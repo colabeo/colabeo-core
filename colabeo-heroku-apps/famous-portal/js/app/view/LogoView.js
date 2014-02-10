@@ -86,15 +86,15 @@ define(function(require, exports, module) {
 
         this.lasers = new FontFeedback({
             fontContent: [
-                'Beepe',
+                '<p class = fa-envelope>Beepe</p>',
                 '<i class="fa fa-envelope fa-lg"></i>',
-                'Beepe',
+                '<p class = fa-facebook-square>Beepe</p>',
                 '<i class="fa fa-facebook-square fa-lg"></i>',
-                'Beepe',
+                '<p class = fa-google-plus-square>Beepe</p>',
                 '<i class="fa fa-google-plus-square fa-lg"></i>',
-                'Beepe',
+                '<p class = fa-linkedin-square>Beepe</p>',
                 '<i class="fa fa-linkedin-square fa-lg"></i>',
-                'Beepe',
+                '<p class = fa-github>Beepe</p>',
                 '<i class="fa fa-github fa-lg"></i>'
             ],
             fontProperties: {
