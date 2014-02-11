@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Beepe</title>
+</head>
+<body>
+
+    <script>
+        function isIOS() {
+            if( /iOS/i.test(navigator.userAgent) ) {
+                return true;
+            }
+            return false;
+        }
+
+        function isAndroid() {
+            if( /Android/i.test(navigator.userAgent) ) {
+                return true;
+            }
+            return false;
+        }
+
+        function isChrome() {
+            if( /Chrome/i.test(navigator.userAgent) ) {
+                return true;
+            }
+            return false;
+        }
+
+        function isLandscape() {
+            var width = screen.availWidth;
+            var height = screen.availHeight;
+
+            return (width > height);
+        }
+
+        var url;
+        if ( isChrome() ) {
+          if ( isIOS() )  {
+
+            url = "https://beepe.me/notsupported?IOS";
+          }
+          else if ( isAndroid() ) {
+            url = "https://beepe.me/?Android";
+          }
+          else if ( isLandscape() ) {
+            url = "https://beepe.me/welcome";
+          }
+          else {
+            url = "https://beepe.me/?Else";
+          }
+        }
+        else {
+          url = "https://beepe.me/notsupported/?else";
+        }
+        //alert(url);
+        window.location = url;
+    </script>
+</body>
+</html>
