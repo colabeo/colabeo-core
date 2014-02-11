@@ -108,7 +108,7 @@ body{
     right: 150px;
     border: none;
     z-index: 9999;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.2);
     z-index: 99;
 }
 
