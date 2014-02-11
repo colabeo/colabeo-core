@@ -61,7 +61,7 @@ define(function(require, exports, module) {
     LogoView.prototype.constructor = LogoView;
 
     LogoView.DEFAULT_OPTIONS = {
-        torqueSize: [340, 340],
+        torqueSize: [260, 260],
         alarmDelay: 1000,
         alarmCurve: {
             curve: 'outSineNorm',
