@@ -294,3 +294,14 @@ img.img-rounded:hover{
     position: absolute;
     right: 200px;
 }
+
+.info {
+    font-size: 80px;
+    font-weight: 300;
+    color: #fff;
+    margin: 5px 0;
+    font-family: 'Oleo Script', cursive;
+    position: absolute;
+    right: 60px;
+    top: 300px;
+}
