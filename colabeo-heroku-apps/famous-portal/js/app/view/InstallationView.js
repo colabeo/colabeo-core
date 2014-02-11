@@ -9,8 +9,8 @@ define(function(require, exports, module) {
         View.apply(this, arguments);
 
         this.buttonSurface = new Surface({
-            size:[undefined, undefined]
-//            content: '<a class="btn btn-cta btn-lg install-link" link="https://chrome.google.com/webstore/detail/eccfcbafhnpojpjhdhlkoikpnbofhljf"><p>+ ADD TO CHROME</p></a>'
+            size:[undefined, undefined],
+            content: '<a class="btn btn-cta btn-lg install-link" link="https://chrome.google.com/webstore/detail/ecleeepjaolfenbeoehehfnaldpdikbe"><p>+ ADD TO CHROME</p></a>'
         });
 
         this.logoView = new LogoView();

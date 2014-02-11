@@ -109,6 +109,7 @@ body{
     border: none;
     z-index: 9999;
     background: rgba(0,0,0,0.5);
+    z-index: 99;
 }
 
 .google-form{
@@ -271,14 +272,25 @@ img.img-rounded:hover{
 .install-link p {
     color: rgba(254, 254, 254, 0.90);
     background: rgba(2, 161, 221, 0.90);
-    width: 220px;
-    height: 40px;
+    width: 150px;
+    height: 25px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 20px;
-    line-height: 40px;
+    font-size: 14px;
+    line-height: 25px;
     position: relative;
-    top: 50px;
-    left: 300px;
+    top: 260px;
+    left: 280px;
     text-align: center;
+}
+
+.footer {
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
+    line-height: 20px;
+    padding: 5px 20px;
+    pointer-events: none;
+    bottom: 0px;
+    position: absolute;
+    right: 200px;
 }
