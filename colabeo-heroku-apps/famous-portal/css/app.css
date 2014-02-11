@@ -109,6 +109,7 @@ body{
     border: none;
     z-index: 9999;
     background: rgba(0,0,0,0.5);
+    z-index: 99;
 }
 
 .google-form{
