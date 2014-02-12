@@ -101,15 +101,17 @@ body{
 }
 
 .iframe-colabeo-dashboard{
-    height: 84%;
-    width: 400px;
-    position: absolute;
-    top: 8%;
-    right: 150px;
+    height: 100%;
+    width: 100%;
     border: none;
-    z-index: 9999;
-    background: rgba(0,0,0,0.5);
-    z-index: 99;
+    background: rgba(0,0,0,0.2);
+
+    /*height: 84%;*/
+    /*width: 400px;*/
+    /*position: absolute;*/
+    /*top: 8%;*/
+    /*right: 150px;*/
+    /*z-index: 9999;*/
 }
 
 .google-form{
