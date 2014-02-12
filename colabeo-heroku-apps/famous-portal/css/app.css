@@ -114,6 +114,10 @@ body{
     /*z-index: 9999;*/
 }
 
+.comingsoon .iframe-colabeo-dashboard{
+    display: none;
+}
+
 .google-form{
     float: left;
     position: relative;
