@@ -4,6 +4,9 @@ define(function(require, exports, module) {
     var Surface      = require('famous/Surface');
     var View             = require('famous/View');
     var LogoView = require('app/view/LogoView');
+    var Mod = require('famous/Modifier');
+    var FM = require('famous/Matrix');
+    var Engine = require('famous/Engine');
 
     function InstallationView(options) {
         View.apply(this, arguments);
@@ -21,11 +24,35 @@ define(function(require, exports, module) {
         FamousEngine.on('resize', function(){
             this.logoView.setTorquePos.bind(this.logoView);
         }.bind(this));
+
+        this.iframeSurface = new Surface({
+            size:[400, 0.84* window.innerHeight],
+//            classes: ['iframe-colabeo-dashboard'],
+            content: '<iframe src="http://localhost:1337" class="iframe-colabeo-dashboard"></iframe>'
+        });
+
+//        this.iframeSurface.on('click', function(e){
+//            e.stopPropagation();
+//        });
+
+        var mod = new Mod({
+            transform: FM.translate(0,0,100),
+            origin: [0.77, 0.6]
+        })
+
+        this._add(mod).link(this.iframeSurface);
+
+        Engine.on('resize', function(e){
+            this.iframeSurfaceResize();
+        }.bind(this));
     }
 
     InstallationView.prototype = Object.create(View.prototype);
     InstallationView.prototype.constructor = InstallationView;
 
+    InstallationView.prototype.iframeSurfaceResize = function (){
+        this.iframeSurface.setSize([400, 0.84 * window.innerHeight]);
+    };
 
     module.exports = InstallationView;
 });
