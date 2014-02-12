@@ -28,7 +28,7 @@ define(function(require, exports, module) {
         this.iframeSurface = new Surface({
             size:[400, 0.84* window.innerHeight],
 //            classes: ['iframe-colabeo-dashboard'],
-            content: '<iframe src="http://localhost:1337" class="iframe-colabeo-dashboard"></iframe>'
+            content: '<iframe src="/" class="iframe-colabeo-dashboard"></iframe>'
         });
 
 //        this.iframeSurface.on('click', function(e){
