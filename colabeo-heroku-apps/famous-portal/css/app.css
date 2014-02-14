@@ -7,7 +7,7 @@ body{
 }
 #splash-container {
     position: absolute;
-    top: 2%;
+    top: 150px;
     width: 500px;
     left: 100px;
     text-align: center;
@@ -104,14 +104,8 @@ body{
     height: 100%;
     width: 100%;
     border: none;
-    background: rgba(0,0,0,0.2);
-
-    /*height: 84%;*/
-    /*width: 400px;*/
-    /*position: absolute;*/
-    /*top: 8%;*/
-    /*right: 150px;*/
-    /*z-index: 9999;*/
+    background: url('/famous-time/content/images/wallpaper-dark.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
 }
 
 .comingsoon .iframe-colabeo-dashboard{
@@ -278,15 +272,15 @@ img.img-rounded:hover{
 .install-link p {
     color: rgba(254, 254, 254, 0.90);
     background: rgba(2, 161, 221, 0.90);
-    width: 150px;
-    height: 25px;
+    width: 230px;
+    height: 40px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
-    line-height: 25px;
+    font-size: 20px;
+    line-height: 40px;
     position: relative;
-    top: 260px;
-    left: 280px;
+    top: 400px;
+    left: 240px;
     text-align: center;
 }
 

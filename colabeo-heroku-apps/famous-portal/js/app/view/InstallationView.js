@@ -3,7 +3,7 @@ define(function(require, exports, module) {
     var FamousEngine = require('famous/Engine');
     var Surface      = require('famous/Surface');
     var View             = require('famous/View');
-    var LogoView = require('app/view/LogoView');
+//    var LogoView = require('app/view/LogoView');
     var Mod = require('famous/Modifier');
     var FM = require('famous/Matrix');
     var Engine = require('famous/Engine');
@@ -16,18 +16,17 @@ define(function(require, exports, module) {
             content: '<a class="btn btn-cta btn-lg install-link" link="https://chrome.google.com/webstore/detail/ecleeepjaolfenbeoehehfnaldpdikbe"><p>+ ADD TO CHROME</p></a>'
         });
 
-        this.logoView = new LogoView();
-
-        this._add(this.logoView);
+//        this.logoView = new LogoView();
+//
+//        this._add(this.logoView);
         this._add(this.buttonSurface);
 
-        FamousEngine.on('resize', function(){
-            this.logoView.setTorquePos.bind(this.logoView);
-        }.bind(this));
+//        FamousEngine.on('resize', function(){
+//            this.logoView.setTorquePos.bind(this.logoView);
+//        }.bind(this));
 
         this.iframeSurface = new Surface({
             size:[400, 0.84* window.innerHeight],
-//            classes: ['iframe-colabeo-dashboard'],
             content: '<iframe src="/" class="iframe-colabeo-dashboard"></iframe>'
         });
 
@@ -37,7 +36,7 @@ define(function(require, exports, module) {
 
         var mod = new Mod({
             transform: FM.translate(0,0,100),
-            origin: [0.77, 0.6]
+            origin: [0.82, 0.6]
         })
 
         this._add(mod).link(this.iframeSurface);

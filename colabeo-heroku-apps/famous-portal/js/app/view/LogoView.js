@@ -5,10 +5,11 @@ define(function(require, exports, module) {
 
     //Include Physics: Engine, Forces, Utilties
     var PhysicsEngine = require('famous-physics/PhysicsEngine');
-
+    var Surface      = require('famous/Surface');
+    var View      = require('famous/View');
+    var RenderNode      = require('famous/RenderNode');
     var TorqueRenderable    = require('app/widgets/TorqueRenderable');
     var Scene               = require('famous-scene/Scene');
-    var SplitImages         = require('app/widgets/SplitImages');
     var Utils               = require('famous-utils/Utils');
     var SoundPlayer = require('famous-audio/SoundPlayer');
     var FontFeedback = require('famous-feedback/FontFeedback');
@@ -25,20 +26,20 @@ define(function(require, exports, module) {
             'sounds/sharp-beep-single.mp3'
         ]);
 
-        this.split = new SplitImages({
-            images: [
-                'pics/0.svg',
-                'pics/1.svg',
-                'pics/2.svg',
-                'pics/3.svg'
-//                'img/splitImage4/4.svg'
-            ],
-            depth: 30,
-            size: this.options.torqueSize
-        });
+
+        var sequence = "Beepe".split('').map(function(item, index){
+            var view = new View();
+            var surface = new Surface({
+                content: item,
+                classes: ['title']
+            });
+            surface.pipe(this.eventOutput);
+            view._add(surface);
+            return view;
+        }.bind(this));
 
         this.torque = new TorqueRenderable({
-            views: [this.split],
+            views: sequence,
             forceStrength: 0.50,
             forceSpringDamping: 1.35,
             forceSpringPeriod: 1100,
