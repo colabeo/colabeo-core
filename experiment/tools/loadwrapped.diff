@@ -1,0 +1,10 @@
+*** index.html	2013-09-03 16:03:30.000000000 -0700
+--- index.html	2013-09-03 16:03:48.000000000 -0700
+***************
+*** 10,13 ****
+!         <script type="text/javascript" src="js/lib/functionPrototypeBind.js"></script>
+!         <script type="text/javascript" src="js/lib/classList.js"></script>
+!         <script type="text/javascript" src="js/lib/requestAnimationFrame.js"></script>
+!         <script type="text/javascript" src="js/lib/require.js" data-main="js/main"></script>
+--- 10,10 ----
+!         <script type="text/javascript" src="js/app.js"></script>

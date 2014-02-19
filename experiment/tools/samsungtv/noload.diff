@@ -1,0 +1,13 @@
+*** ../index.html	2013-01-29 17:13:26.000000000 -0800
+--- build/index.html	2013-01-29 17:16:19.000000000 -0800
+***************
+*** 13,20 ****
+          <script type="text/javascript" src="js/lib/requestAnimationFrame.js"></script>
+          <script type="text/javascript" src="js/app.js"></script>
+-         <script type="text/javascript">
+-             var widgetAPI = new Common.API.Widget();
+-             window.addEventListener('load', function() { widgetAPI.sendReadyEvent(); });
+-         </script>
+      </head>
+      <body>
+--- 13,16 ----

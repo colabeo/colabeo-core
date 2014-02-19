@@ -1,0 +1,19 @@
+cd js
+
+rm famous*
+
+ln -s  ../../famousMaster2013/famous famous
+ln -s  ../../famousMaster2013/famous-animation famous-animation
+ln -s  ../../famousMaster2013/famous-audio famous-audio
+ln -s  ../../famousMaster2013/famous-color famous-color
+ln -s  ../../famousMaster2013/famous-feedback famous-feedback
+ln -s  ../../famousMaster2013/famous-math famous-math
+ln -s  ../../famousMaster2013/famous-modifiers famous-modifiers
+ln -s  ../../famousMaster2013/famous-performance famous-performance
+ln -s  ../../famousMaster2013/famous-physics famous-physics
+ln -s  ../../famousMaster2013/famous-scene famous-scene
+ln -s  ../../famousMaster2013/famous-sync famous-sync
+ln -s  ../../famousMaster2013/famous-utils famous-utils
+ln -s  ../../famousMaster2013/famous-ui famous-ui
+ln -s  ../../famousMaster2013/famous-views famous-views
+ln -s  ../../famousMaster2013/famous-widgets famous-widgets
