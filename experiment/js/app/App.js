@@ -5,14 +5,16 @@ define(function(require, exports, module) {
     var SequentialLayout = require('famous-views/SequentialLayout');
     var TestScrollview = require('app/TestScrollview');
     var TestScene = require('app/TestScene');
+    var TestContactItemView = require('app/TestContactItemView');
 
     function App(){
         this.testScrollview = new TestScrollview();
         this.testScene = new TestScene();
-
+        this.testContactItemview = new TestContactItemView();
 
 //        Context.link(this.testScrollview);
-        Context.link(this.testScene);
+//        Context.link(this.testScene);
+        Context.link(this.testContactItemview);
 //        this.init();
     }
 
