@@ -10,10 +10,12 @@ var mainCtx = FamousEngine.createContext();
 
 var TestScene = require('test-scene');
 var TestScrollview = require('test-scrollview');
+var TestContactItemView = require('test-contact-item-view');
 
-var testScene = new TestScrollview();
 
-mainCtx.link(testScene);
+var test = new TestContactItemView();
+
+mainCtx.link(test);
 
 //mainCtx.setPerspective(2000);
 

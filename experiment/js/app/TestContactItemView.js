@@ -32,8 +32,7 @@ define(function(require, exports, module) {
         this._add(this.favorMod).link(this.favorSurface);
         this._add(this.callMod).link(this.callSurface);
 
-        this.posX = [0,0];
-        this.showingLeftButtons = false;
+        this.posX=[0,0];
 
         var sync = new GenericSync(function(){
             return this.posX
@@ -48,15 +47,15 @@ define(function(require, exports, module) {
         this.itemSurface.pipe(sync);
         sync.on('start', function(data) {
             this.posX = [0,0];
-        });
+        }.bind(this));
 
         sync.on('update', function(data) {
-            this.posX = data.p;  // the displacement of last frame.
-            this.animateItem(this.posX);
+            this.posX = data.p;  // the displacement from the start touch point.
+            this.moveUpdate(this.posX);
             if (this.posX > 0) {
-                this.animateLeftButtons()
+//                this.animateLeftButtons()
             } else {
-                this.animateRightButtons();
+//                this.animateRightButtons();
             }
         }.bind(this));
 
@@ -96,15 +95,7 @@ define(function(require, exports, module) {
         return Mod;
     };
 
-    TestContactItemView.prototype.animateItem = function(position){
-        this.itemMod.setTransform(FM.translate(position[0], 0, 0));
-    };
-
-    TestContactItemView.prototype.animateLeftButtons = function(){
-        this.itemMod.setTransform(FM.translate(position[0], 0, 0));
-    };
-
-    TestContactItemView.prototype.animateRightButtons = function(){
+    TestContactItemView.prototype.moveUpdate = function(position){
         this.itemMod.setTransform(FM.translate(position[0], 0, 0));
     };
 

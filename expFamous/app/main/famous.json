@@ -10,7 +10,8 @@
   },
   "local": [
       "test-scene",
-      "test-scrollview"
+      "test-scrollview",
+      "test-contact-item-view"
   ],
   "scripts": ["index.js"],
   "styles": ["styles.css"],
