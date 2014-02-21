@@ -4,11 +4,13 @@ var Modifier = require('famous/modifier');
 var GenericSync = require('famous/input/generic-sync');
 var MouseSync = require('famous/input/mouse-sync');
 var TouchSync = require('famous/input/touch-sync');
-var FM = require('famous/transform');
+var Transform = require('famous/transform');
 var Easing = require('famous/transitions/easing');
 var Transitionable   = require('famous/transitions/transitionable');
 var WallTransition   = require('famous/transitions/wall-transition');
 var SpringTransition   = require('famous/transitions/spring-transition');
+var Engine = require('famous/engine');
+
 Transitionable.registerMethod('wall', WallTransition);
 Transitionable.registerMethod('spring', SpringTransition);
 
@@ -17,28 +19,31 @@ function TestContactItemView(){
 
     this.buttonSize = 100;
 
-    this.deleteSurface = this.createSurface([this.buttonSize,this.buttonSize],"red","delete");
-    this.favorSurface = this.createSurface([this.buttonSize,this.buttonSize],"blue","favor");
-    this.callSurface = this.createSurface([this.buttonSize,this.buttonSize],"green","call");
-    this.itemSurface = this.createSurface([400,this.buttonSize],"yellow","item");
+    this.deleteSurface = this.createButton([this.buttonSize,this.buttonSize],"red","delete");
+    this.favorSurface = this.createButton([this.buttonSize,this.buttonSize],"blue","favor");
+    this.callSurface = this.createButton([this.buttonSize,this.buttonSize],"green","call");
+    this.itemSurface = this.createItem([true,this.buttonSize],"yellow","item");
+    window.itemSurface = this.itemSurface;
 
-    this.itemMod = this.createMod([0.5,0.5],1,0);
     this.deleteMod = this.createMod([0,0.5],0,0);
-    this.favorMod = this.createMod([0,0.5],0,100);
+    this.favorMod = this.createMod([0,0.5],0,this.buttonSize);
     this.callMod = this.createMod([1,0.5],0,0);
+    this.itemMod = this.createMod([0,0.5],1,0);
 
-    this._add(this.itemMod).link(this.itemSurface);
     this._add(this.deleteMod).link(this.deleteSurface);
     this._add(this.favorMod).link(this.favorSurface);
     this._add(this.callMod).link(this.callSurface);
+    this._add(this.itemMod).link(this.itemSurface);
 
     this.pos = [0,0];
-    this.showingLeftButtons = false;
+    this.isEditingMode = false;
 
     var sync = new GenericSync(function(){
-        return this.pos
-    }.bind(this),{syncClasses:[MouseSync,TouchSync]
-    });
+            return this.pos;
+        }.bind(this), {
+            syncClasses:[MouseSync,TouchSync]
+        }
+    );
 
     this.returnZeroOpacityTransition = {
         'curve' : Easing.outBackNorm,
@@ -46,31 +51,35 @@ function TestContactItemView(){
     };
 
     this.itemSurface.pipe(sync);
-    sync.on('start', function(data) {
-        this.pos = [0,0];
-        if (this.showingLeftButtons) this.pos = [2*this.buttonSize,0]
 
+    sync.on('start', function(data) {
+        this.pos = [0,0]; // reset the position
     }.bind(this));
 
     sync.on('update', function(data) {
+
         this.pos = data.p;  // the displacement from the start touch point.
         this.animateItem();
-        if (this.pos[0] > 0) {
-            this.animateLeftButtons()
-        } else {
-            this.animateRightButtons();
-        }
+//        if (this.pos[0] > 0) {
+//            this.animateLeftButtons()
+//        } else {
+//            this.animateRightButtons();
+//        }
     }.bind(this));
 
     sync.on('end', function(data) {
-        if (this.showingLeftButtons == false && this.pos[0] > 2*this.buttonSize){
-            this.showingLeftButtons = true;
+        if (this.pos[0] > 2*this.buttonSize){
+            this.isEditingMode = !this.isEditingMode;
+        } else {
+            this.isEditingMode = false;
         }
+        console.log('isEditingMode: ',this.isEditingMode);
         this.animateItemEnd();
-        this.animateLeftButtonsEnd();
-        this.animateRightButtonsEnd();
+//        this.animateLeftButtonsEnd();
+//        this.animateRightButtonsEnd();
     }.bind(this));
 
+    Engine.on('resize', this.resizeItem.bind(this));
 
     window.tt=this;
 
@@ -80,9 +89,19 @@ function TestContactItemView(){
 TestContactItemView.prototype = Object.create(View.prototype);
 TestContactItemView.prototype.constructor = TestContactItemView;
 
-TestContactItemView.prototype.createSurface = function(size,color,content){
+TestContactItemView.prototype.createItem = function(size,color,content){
     var surface = new Surface({
-        content:content,
+        content: '<div style="width: ' + window.innerWidth + 'px">' + content + '</div>',
+        size:size,
+        properties:{
+            backgroundColor:color
+        }
+    });
+    return surface;
+};
+TestContactItemView.prototype.createButton = function(size,color,content){
+    var surface = new Surface({
+        content: '<div>' + content + '</div>',
         size:size,
         properties:{
             backgroundColor:color
@@ -95,45 +114,45 @@ TestContactItemView.prototype.createMod= function(origin, opacity, translateX){
     var Mod = new Modifier({
         origin: origin,
         opacity:opacity,
-        transform:FM.translate(translateX,0,0)
+        transform:Transform.translate(translateX,0,0)
     });
     return Mod;
 };
 
 TestContactItemView.prototype.animateItem = function(){
-    if (this.pos[0] > 0){
-        this.itemMod.setTransform(FM.translate(Math.min(this.pos[0],window.innerWidth), 0, 0));
-    } else {
-        this.itemMod.setTransform(FM.translate(Math.max(this.pos[0],-window.innerWidth), 0, 0));
-    }
+    this.itemMod.setTransform(Transform.translate(this.pos[0], 0, 0));
 };
 
 TestContactItemView.prototype.animateItemEnd = function(){
-    if (this.showingLeftButtons) {
-        this.itemMod.setTransform(FM.translate(2*this.buttonSize,0,0) ,{
-            method: 'wall',
-            period: 500,
-            dampingRatio: .1
-        });
+    var translate = Transform.identity;
+    if (this.isEditingMode) {
+        this.itemMod.setOrigin([2*this.buttonSize/window.innerWidth, 0.5]);
+        this.itemMod.setOpacity(0.5);
+//        translate = Transform.translate(2*this.buttonSize,0,0);
+//        var translate = Transform.translate(0,0,0);
     } else {
-        this.itemMod.setTransform(FM.identity ,{
-            method: 'wall',
-            period: 500,
-            dampingRatio: .1
-        });
+        this.itemMod.setOrigin([0, 0.5]);
+        this.itemMod.setOpacity(1);
+//        translate = Transform.translate(0,0,0);
     }
+    this.itemMod.setTransform(translate ,{
+        method: 'wall',
+        period: 200,
+        dampingRatio: .1
+    });
 };
 
 TestContactItemView.prototype.animateLeftButtons = function(){
     if (this.pos[0] > 0){
-        this.deleteMod.setOpacity(Math.min(this.pos[0]/this.buttonSize, 1));
-        this.favorMod.setOpacity(Math.min((this.pos[0]-this.buttonSize)/this.buttonSize, 1));
+        var opacity = Math.min(this.pos[0]/2*this.buttonSize, 1);
+        this.deleteMod.setOpacity(opacity);
+        this.favorMod.setOpacity(opacity);
     }
 
 };
 
 TestContactItemView.prototype.animateLeftButtonsEnd = function(){
-    if (this.showingLeftButtons) {
+    if (this.isEditingMode) {
         this.deleteMod.setOpacity(1);
         this.favorMod.setOpacity(1)
     } else {
@@ -151,10 +170,11 @@ TestContactItemView.prototype.animateRightButtons = function(){
 
 TestContactItemView.prototype.animateRightButtonsEnd = function(){
     this.callMod.setOpacity(0, this.returnZeroOpacityTransition)
-
 };
 
-window.tt=this;
+TestContactItemView.prototype.resizeItem = function(){
+    this.itemSurface._currTarget.children[0].style.width = window.innerWidth + 'px';
+};
 
 module.exports = TestContactItemView;
 

@@ -1,11 +1,11 @@
 require('famous/polyfills');
 
 
-var FamousEngine = require('famous/engine');
+var Engine = require('famous/engine');
 var Surface = require('famous/surface');
 var Modifier = require('famous/modifier');
 
-var mainCtx = FamousEngine.createContext();
+var mainCtx = Engine.createContext();
 
 
 var TestScene = require('test-scene');
