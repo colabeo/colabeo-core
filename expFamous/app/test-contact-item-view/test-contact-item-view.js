@@ -53,6 +53,12 @@ function TestContactItemView(){
         'duration' : 500
     };
 
+    this.wallTransition = {
+        method: 'wall',
+        period: 200,
+        dampingRatio: .65
+    };
+
     this.itemSurface.pipe(sync);
 
     sync.on('start', function(data) {
@@ -60,7 +66,6 @@ function TestContactItemView(){
     }.bind(this));
 
     sync.on('update', function(data) {
-
         this.pos = data.p;  // the displacement from the start touch point.
         this.animateItem();
         if (this.pos[0] > 0) {
@@ -72,14 +77,10 @@ function TestContactItemView(){
 
     sync.on('end', function(data) {
         if (this.pos[0] > 2*this.buttonSize){
-            this.isEditingMode = !this.isEditingMode;
+            this.toggleEditing();
         } else {
-            this.isEditingMode = false;
+            this.setEditingOff();
         }
-        console.log('isEditingMode: ',this.isEditingMode);
-        this.animateItemEnd();
-        this.animateLeftButtonsEnd();
-        this.animateRightButtonsEnd();
     }.bind(this));
 
     Engine.on('resize', this.resizeItem.bind(this));
@@ -129,19 +130,15 @@ TestContactItemView.prototype.animateItem = function(){
 TestContactItemView.prototype.animateItemEnd = function(){
     var translate = Transform.identity;
     if (this.isEditingMode) {
-        this.itemMod.setOrigin(this.editingOrigin);
+        this.itemMod.setOrigin(this.editingOrigin, this.wallTransition);
         this.itemMod.setOpacity(0.5);
 //        translate = Transform.translate(2*this.buttonSize,0,0);
     } else {
-        this.itemMod.setOrigin(this.origin);
+        this.itemMod.setOrigin(this.origin, this.wallTransition);
         this.itemMod.setOpacity(1);
 //        translate = Transform.translate(0,0,0);
     }
-    this.itemMod.setTransform(translate ,{
-        method: 'wall',
-        period: 200,
-        dampingRatio: .5
-    });
+    this.itemMod.setTransform(translate , this.wallTransition);
 };
 
 TestContactItemView.prototype.animateLeftButtons = function(){
@@ -163,7 +160,6 @@ TestContactItemView.prototype.animateLeftButtonsEnd = function(){
 
 TestContactItemView.prototype.animateRightButtons = function(){
     if (this.pos[0] < 0) {
-        console.log(Math.min(-1*this.pos[0]/this.buttonSize,1))
         this.callMod.setOpacity(Math.min(-1*this.pos[0]/this.buttonSize,1));
     }
 };
@@ -174,6 +170,27 @@ TestContactItemView.prototype.animateRightButtonsEnd = function(){
 
 TestContactItemView.prototype.resizeItem = function(){
     this.itemSurface._currTarget.children[0].style.width = window.innerWidth + 'px';
+};
+
+TestContactItemView.prototype.setEditingOn = function(){
+    this.isEditingMode = true;
+    this.animateItemEnd();
+    this.animateLeftButtonsEnd();
+    this.animateRightButtonsEnd();
+};
+
+TestContactItemView.prototype.setEditingOff = function(){
+    this.isEditingMode = false;
+    this.animateItemEnd();
+    this.animateLeftButtonsEnd();
+    this.animateRightButtonsEnd();
+};
+
+TestContactItemView.prototype.toggleEditing = function(){
+    this.isEditingMode = !this.isEditingMode;
+    this.animateItemEnd();
+    this.animateLeftButtonsEnd();
+    this.animateRightButtonsEnd();
 };
 
 module.exports = TestContactItemView;
