@@ -18,17 +18,20 @@ function TestContactItemView(){
     View.apply(this, arguments);
 
     this.buttonSize = 100;
+    this.origin = [0, 0.5];
+    this.editingOrigin = [2*this.buttonSize/window.innerWidth, 0.5];
+    this.endOrigin = [1, 0.5];
+    this.curOrigin;
 
     this.deleteSurface = this.createButton([this.buttonSize,this.buttonSize],"red","delete");
     this.favorSurface = this.createButton([this.buttonSize,this.buttonSize],"blue","favor");
     this.callSurface = this.createButton([this.buttonSize,this.buttonSize],"green","call");
     this.itemSurface = this.createItem([true,this.buttonSize],"yellow","item");
-    window.itemSurface = this.itemSurface;
 
-    this.deleteMod = this.createMod([0,0.5],0,0);
-    this.favorMod = this.createMod([0,0.5],0,this.buttonSize);
-    this.callMod = this.createMod([1,0.5],0,0);
-    this.itemMod = this.createMod([0,0.5],1,0);
+    this.deleteMod = this.createMod(this.origin,0,0);
+    this.favorMod = this.createMod(this.origin,0,this.buttonSize);
+    this.callMod = this.createMod(this.endOrigin,0,0);
+    this.itemMod = this.createMod(this.origin,1,0);
 
     this._add(this.deleteMod).link(this.deleteSurface);
     this._add(this.favorMod).link(this.favorSurface);
@@ -60,11 +63,11 @@ function TestContactItemView(){
 
         this.pos = data.p;  // the displacement from the start touch point.
         this.animateItem();
-//        if (this.pos[0] > 0) {
-//            this.animateLeftButtons()
-//        } else {
-//            this.animateRightButtons();
-//        }
+        if (this.pos[0] > 0) {
+            this.animateLeftButtons()
+        } else {
+            this.animateRightButtons();
+        }
     }.bind(this));
 
     sync.on('end', function(data) {
@@ -75,8 +78,8 @@ function TestContactItemView(){
         }
         console.log('isEditingMode: ',this.isEditingMode);
         this.animateItemEnd();
-//        this.animateLeftButtonsEnd();
-//        this.animateRightButtonsEnd();
+        this.animateLeftButtonsEnd();
+        this.animateRightButtonsEnd();
     }.bind(this));
 
     Engine.on('resize', this.resizeItem.bind(this));
@@ -126,29 +129,26 @@ TestContactItemView.prototype.animateItem = function(){
 TestContactItemView.prototype.animateItemEnd = function(){
     var translate = Transform.identity;
     if (this.isEditingMode) {
-        this.itemMod.setOrigin([2*this.buttonSize/window.innerWidth, 0.5]);
+        this.itemMod.setOrigin(this.editingOrigin);
         this.itemMod.setOpacity(0.5);
 //        translate = Transform.translate(2*this.buttonSize,0,0);
-//        var translate = Transform.translate(0,0,0);
     } else {
-        this.itemMod.setOrigin([0, 0.5]);
+        this.itemMod.setOrigin(this.origin);
         this.itemMod.setOpacity(1);
 //        translate = Transform.translate(0,0,0);
     }
     this.itemMod.setTransform(translate ,{
         method: 'wall',
         period: 200,
-        dampingRatio: .1
+        dampingRatio: .5
     });
 };
 
 TestContactItemView.prototype.animateLeftButtons = function(){
-    if (this.pos[0] > 0){
-        var opacity = Math.min(this.pos[0]/2*this.buttonSize, 1);
-        this.deleteMod.setOpacity(opacity);
-        this.favorMod.setOpacity(opacity);
-    }
-
+    if (this.isEditingMode) return;
+    var opacity = Math.min(this.pos[0]/(2*this.buttonSize), 1);
+    this.deleteMod.setOpacity(opacity);
+    this.favorMod.setOpacity(opacity);
 };
 
 TestContactItemView.prototype.animateLeftButtonsEnd = function(){
