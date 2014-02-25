@@ -17,5 +17,5 @@ function test(arr) {
         console.log(arr);
 }
 
-a = permutator([1,2,3,4,5,6,7,8,9,0]);
+a = permutator([1,2,3,4,5,6,7,8,9]);
 a.map(test);

@@ -21,9 +21,6 @@ define(function(require, exports, module) {
     var favorViewController = require('app/control/FavorViewController');
 
     function MainController() {
-        if (Utils.isMobile()) {
-            window.location = $('.iframe-colabeo-dashboard').attr('src');
-        }
         // Set up event handlers
         this.eventInput = new EventHandler();
         EventHandler.setInputHandler(this, this.eventInput);
@@ -54,15 +51,7 @@ define(function(require, exports, module) {
 
 //            TODO: for now, we show installationView only
             mainDisplay.add(installationView);
-//            setTimeout(function(){
-//                if (window.colabeoBody) {
-//                    mainDisplay.add(mainView);
-//
-//                }
-//                else {
-//                    mainDisplay.add(installationView);
-//                }
-//            },1000);
+
         });
 
 
