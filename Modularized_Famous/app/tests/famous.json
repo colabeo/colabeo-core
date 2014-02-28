@@ -1,0 +1,34 @@
+{
+  "name": "tests",
+  "main": "index.js",
+  "dependencies": {
+    "famous/engine": "git+ssh://git@github.com:Famous/famous.git#modularized",
+    "famous/event-arbiter": "git+ssh://git@github.com:Famous/famous.git#modularized",
+    "famous/modifier": "git+ssh://git@github.com:Famous/famous.git#modularized",
+    "famous/surface": "git+ssh://git@github.com:Famous/famous.git#modularized",
+    "famous/transform": "git+ssh://git@github.com:Famous/famous.git#modularized",
+    "famous/view": "git+ssh://git@github.com:Famous/famous.git#modularized",
+    "famous/render-node": "git+ssh://git@github.com:Famous/famous.git#modularized",
+    "famous/event-handler": "git+ssh://git@github.com:Famous/famous.git#modularized",
+    "famous/options-manager": "git+ssh://git@github.com:Famous/famous.git#modularized",
+    "famous/transitions/easing": "git+ssh://git@github.com:Famous/famous-transitions.git#modularized",
+    "famous/transitions/transitionable": "git+ssh://git@github.com:Famous/famous-transitions.git#modularized",
+    "famous/surfaces/container-surface": "git+ssh://git@github.com:Famous/famous-surfaces.git#modularized",
+    "famous/views/scrollview": "git+ssh://git@github.com:Famous/famous-views.git#modularized",
+    "famous/utilities/utility": "git+ssh://git@github.com:Famous/famous-utilities.git#modularized",
+    "famous/utilities/utils": "git+ssh://git@github.com:Famous/famous-utilities.git#modularized",
+    "famous/input/generic-sync": "git+ssh://git@github.com:Famous/famous-sync.git#modularized",
+    "famous/input/mouse-sync": "git+ssh://git@github.com:Famous/famous-sync.git#modularized",
+    "famous/input/touch-sync": "git+ssh://git@github.com:Famous/famous-sync.git#modularized",
+    "famous/input/rotate-sync": "git+ssh://git@github.com:Famous/famous-sync.git#modularized",
+    "famous/input/pinch-sync": "git+ssh://git@github.com:Famous/famous-sync.git#modularized",
+    "famous/input/scroll-sync": "git+ssh://git@github.com:Famous/famous-sync.git#modularized",
+    "famous/input/scale-sync": "git+ssh://git@github.com:Famous/famous-sync.git#modularized",
+    "famous/input/two-finger-sync": "git+ssh://git@github.com:Famous/famous-sync.git#modularized",
+    "famous/transitions/wall-transition": "git+ssh://git@github.com:Famous/famous-transitions.git#modularized",
+    "famous/transitions/spring-transition": "git+ssh://git@github.com:Famous/famous-transitions.git#modularized"
+  },
+  "scripts": [
+    "**/*.js"
+  ]
+}
