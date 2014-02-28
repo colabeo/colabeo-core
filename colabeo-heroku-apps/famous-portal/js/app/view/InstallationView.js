@@ -7,6 +7,7 @@ define(function(require, exports, module) {
     var Mod = require('famous/Modifier');
     var FM = require('famous/Matrix');
     var Engine = require('famous/Engine');
+    var Utils       = require('famous-utils/Utils');
 
     function InstallationView(options) {
         View.apply(this, arguments);
@@ -25,9 +26,18 @@ define(function(require, exports, module) {
 //            this.logoView.setTorquePos.bind(this.logoView);
 //        }.bind(this));
 
+        var iframeUrl;
+        if (window.location.search)
+            iframeUrl = '/call' + window.location.search;
+        else
+            iframeUrl = '/';
+
+        if (Utils.isMobile()) {
+            window.location = iframeUrl;
+        }
         this.iframeSurface = new Surface({
             size:[400, 0.84* window.innerHeight],
-            content: '<iframe src="/" class="iframe-colabeo-dashboard"></iframe>'
+            content: '<iframe src="' + iframeUrl + '" class="iframe-colabeo-dashboard"></iframe>'
         });
 
 //        this.iframeSurface.on('click', function(e){

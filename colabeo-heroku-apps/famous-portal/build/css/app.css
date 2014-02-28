@@ -104,14 +104,8 @@ body{
     height: 100%;
     width: 100%;
     border: none;
-    background: rgba(0,0,0,0.2);
-
-    /*height: 84%;*/
-    /*width: 400px;*/
-    /*position: absolute;*/
-    /*top: 8%;*/
-    /*right: 150px;*/
-    /*z-index: 9999;*/
+    background: url('/famous-time/content/images/wallpaper-dark.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
 }
 
 .comingsoon .iframe-colabeo-dashboard{
