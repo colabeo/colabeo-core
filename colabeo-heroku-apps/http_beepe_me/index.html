@@ -36,11 +36,7 @@
 
         var url;
         if ( isChrome() ) {
-          if ( isIOS() )  {
-
-            url = "https://beepe.me/notsupported?IOS";
-          }
-          else if ( isAndroid() ) {
+          if ( isAndroid() ) {
             url = "https://beepe.me/?Android";
           }
           else if ( isLandscape() ) {
@@ -49,6 +45,9 @@
           else {
             url = "https://beepe.me/?Else";
           }
+        }
+        else if ( isIOS() )  {
+          url = "https://beepe.me/?IOS";
         }
         else {
           url = "https://beepe.me/notsupported/?else";
