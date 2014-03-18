@@ -13,6 +13,7 @@ var SpringTransition   = require('famous/transitions/spring-transition');
 var EventArbiter = require('famous/event-arbiter');
 var SwipeEventSwitcher   = require('swipe-event-switcher');
 var CustomSync = require('custom-sync');
+var Utility = require('famous/utilities/utility');
 
 Transitionable.registerMethod('wall', WallTransition);
 Transitionable.registerMethod('spring', SpringTransition);
@@ -34,34 +35,43 @@ ItemView.prototype.constructor = ItemView;
 
 ItemView.prototype.setupEvent = function(){
     this.pos = [0,0];
-//    var sync = new GenericSync(function(){
-//        return this.pos
-//    }.bind(this),{syncClasses:[MouseSync,TouchSync]
-//    });
-//
-//    sync.on('start', function() {
-//        this.pos = [0,0];
-//    }.bind(this));
-//    sync.on('update', function(data) {
-//        this.pos = data.p;  // the displacement of last frame.
-//        this.animateItem();
-//    }.bind(this));
-//    sync.on('end', function() {
-//        this.itemMod.setTransform(Transform.identity ,{
-//            method: 'wall',
-//            period: 500,
-//            dampingRatio: .1
-//        });
-//    }.bind(this));
+    var sync = new GenericSync(function(){
+        return this.pos;
+    }.bind(this),{syncClasses:[MouseSync,TouchSync]
+    });
+    sync.on('start', function() {
+        this.pos = [0,0];
+        this._directionChosen = false;
+    }.bind(this));
+    sync.on('update', function(data) {
+        this.pos = data.p;  // the displacement of last frame.
+        if( !this._directionChosen ) {
+            var diffX = Math.abs( this.pos[0] ),
+                diffY = Math.abs( this.pos[1] );
+            this.direction = diffX > diffY ? Utility.Direction.X : Utility.Direction.Y;
+            this._directionChosen = true;
+            if (this.direction == Utility.Direction.X) {
+                this.itemSurface.unpipe(this.eventOutput);
+            }
+            else {
+                this.itemSurface.pipe(this.eventOutput);
+            }
+        } else {
+            if (this.direction == Utility.Direction.X) {
+                this.animateItem();
+            }
+        }
+    }.bind(this));
+    sync.on('end', function() {
+        this.itemMod.setTransform(Transform.identity ,{
+            method: 'wall',
+            period: 500,
+            dampingRatio: .1
+        });
+    }.bind(this));
 
-    this.swipeSwitcher = new SwipeEventSwitcher();
-    Engine.pipe(this.swipeSwitcher);
-
-//    this.swipeSwitcher.setLeftRight( sync );
-    this.swipeSwitcher.setUpDown( this.eventOutput );
-
-//    this.itemSurface.pipe(sync);
-//    this.itemSurface.pipe(this.eventOutput);
+    this.itemSurface.pipe(sync);
+    this.itemSurface.pipe(this.eventOutput);
 
 };
 

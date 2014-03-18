@@ -8,7 +8,7 @@ var GenericSync = require('famous/input/generic-sync');
 var MouseSync = require('famous/input/mouse-sync');
 var TouchSync = require('famous/input/touch-sync');
 
-var CustomSync = require('custom-sync')
+//var CustomSync = require('custom-sync');
 
 /*
  *  @constructor
@@ -24,14 +24,12 @@ function SwipeEventSwitcher ( options ) {
 
     this.eventArbiter = new EventArbiter();
 
-//    this.sync = new CustomSync(this.options.syncClasses);
-
-
-//    this.pos=[0,0];
+    this.pos = [0,0];
     var sync = new GenericSync(function(){
-//        return this.pos
+        return this.pos;
     }.bind(this),{syncClasses:[MouseSync,TouchSync]
     });
+
     EventHandler.setInputHandler(this, sync.eventInput);
     EventHandler.setOutputHandler(this, sync.eventOutput);
 
@@ -48,28 +46,28 @@ SwipeEventSwitcher.DEFAULT_OPTIONS = {
 }
 
 SwipeEventSwitcher.prototype.handleStart = function ( e ) {
-
+    console.log('start', e);
     this.pos=[0,0];
     this._directionChosen = false;
-    this._startCoordinate = e.coordinate;
 
 }
 
 SwipeEventSwitcher.prototype.handleUpdate = function ( e ) {
+    this.pos = e.p;
+    console.log('update', e );
     if( !this._directionChosen ) {
 
         this.pipe( this.eventArbiter );
-        var direction = this._getDirection( e.coordinate );
+        var direction = this._getDirection( );
         this.setDirection(direction);
         this._directionChosen = true;
-
-        this.eventArbiter.forMode( direction ).emit('start', e);
+        this.eventArbiter.forMode( direction ).emit('start', {count: 1, touch: 0});
 
     }
 }
 
 SwipeEventSwitcher.prototype.handleEnd = function ( e ) {
-
+    console.log('end', e );
     Engine.nextTick( this.clearArbiter );
 
 }
@@ -120,12 +118,13 @@ SwipeEventSwitcher.prototype.setUpDown = function ( handler ) {
  *  @param {Array.number} coord - x , y coordinate
  *  @returns {number} 0 or 1, whichever direction has more change.
  */
-SwipeEventSwitcher.prototype._getDirection = function ( coord ) {
+SwipeEventSwitcher.prototype._getDirection = function ( ) {
 
-    var diffX = Math.abs( this._startCoordinate[0] - coord[0] ),
-        diffY = Math.abs( this._startCoordinate[1] - coord[1] );
+    var diffX = Math.abs( this.pos[0] ),
+        diffY = Math.abs( this.pos[1] );
 
     return diffX > diffY ? Utility.Direction.X : Utility.Direction.Y;
+
 }
 
 /*

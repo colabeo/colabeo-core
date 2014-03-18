@@ -1,0 +1,35 @@
+{
+   "name": "Beepe Phone",
+   "description": "Beepe, a cloud phone extension",
+   "short_name": "Beepe Phone",
+   "browser_action":
+   {
+	  "default_icon": "images/19.png",
+      "default_title": "Beepe"
+   },
+   "background" : {
+    "scripts": ["js/firebase.js","js/background.js"]
+   },
+   "content_scripts": [
+        {
+            "all_frames": true,
+            "js": ["js/main.js"],
+            "matches": [ "https://beepe.me/" ],
+            "run_at": "document_idle"
+        }
+   ],
+   "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com https://*.firebaseio-demo.com; object-src 'self'",
+   "icons":
+   {
+   	 "128": "images/128.png",
+      "48": "images/48.png",
+	  "19": "images/19.png",
+      "16": "images/16.png"
+   },
+   "homepage_url": "http://beepe.me",
+   "permissions": [
+       "https://beepe.me/","notifications"
+   ],
+   "version": "0.0.2",
+   "manifest_version": 2
+}
